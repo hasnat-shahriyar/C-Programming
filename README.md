@@ -8,7 +8,7 @@ Welcome to the roadmap to mastering C programming! This guide will take you thro
 
 1. [Introduction to C](https://github.com/hasnat-shahriyar/C-Programming/tree/main/1-Introduction-to-C)
 2. [Basic Syntax and Variables](https://github.com/hasnat-shahriyar/C-Programming/tree/main/2-Basic-Syntax-and-Variables)
-3. Operators
+3. [Operators](https://github.com/hasnat-shahriyar/C-Programming/tree/main/3-Operators)
 4. Control Structures (if-else, loops)
 5. Functions and Scope
 6. Arrays
