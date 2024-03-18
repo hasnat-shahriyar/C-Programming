@@ -6,17 +6,12 @@ Welcome to the roadmap to mastering C programming! This guide will take you thro
 
 ### Modules:
 
-1. Introduction to C
-2. Basic Syntax and Variables
-3. Control Structures (if-else, loops)
-4. Functions and Scope
-5. Arrays
-
-### Resources:
-
-- [C Programming Language by Brian Kernighan and Dennis Ritchie](https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628)
-- Online tutorials and videos on basic C programming concepts
-- Codecademy's C programming course
+1. [Introduction to C](https://github.com/hasnat-shahriyar/C-Programming/tree/main/1-Introduction-to-C)
+2. [Basic Syntax and Variables](https://github.com/hasnat-shahriyar/C-Programming/tree/main/2-Basic-Syntax-and-Variables)
+3. Operators
+4. Control Structures (if-else, loops)
+5. Functions and Scope
+6. Arrays
 
 ### Exercises:
 
@@ -32,16 +27,10 @@ Welcome to the roadmap to mastering C programming! This guide will take you thro
 3. File Handling
 4. Structures and Unions
 
-### Resources:
-
-- [Understanding Pointers in C by Yashavant Kanetkar](https://www.amazon.com/Understanding-Pointers-C-Yashavant-Kanetkar/dp/8176563585)
-- Online tutorials and articles on intermediate C programming topics
-- Official C documentation for in-depth understanding
-
 ### Exercises:
 
 - Implement programs using pointers to manipulate arrays and strings
-- Practice reading from and writing to files using file handling functions
+- Practice reading from and writing to files using file-handling functions
 
 ## Milestone 3: Advanced C Programming (Week 3)
 
@@ -51,12 +40,6 @@ Welcome to the roadmap to mastering C programming! This guide will take you thro
 2. Preprocessor Directives
 3. Advanced Data Structures
 4. Error Handling and Debugging Techniques
-
-### Resources:
-
-- [C Programming: A Modern Approach by K.N. King](https://www.amazon.com/C-Programming-Modern-Approach-2nd/dp/0393979504)
-- Online courses on advanced C programming topics
-- Stack Overflow and other programming forums for troubleshooting
 
 ### Exercises:
 
