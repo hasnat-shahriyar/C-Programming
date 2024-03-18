@@ -50,7 +50,27 @@ In C programming, the `int main()` function serves as the entry point of a C pro
 
 So, when we put `int` and `main()` together, `int main()` declares a function named `main` that returns an integer value. This function is the entry point of the C program.
 
-Here's a basic example demonstrating the usage of `int main()`:
+#
+
+# Understanding the `return 0;` Statement Inside `int main()` in C
+
+In C programming, the `return 0;` statement inside the `int main()` function is used to indicate successful termination of the program to the calling environment (typically the operating system). Let's break down its significance:
+
+## `return 0;`
+
+- In C programming, the `return` statement is used to exit a function and return a value to the calling environment.
+- Inside the `main()` function, `return 0;` is commonly used to indicate that the program executed successfully and terminated without any errors.
+- The return value `0` conventionally signifies successful program execution. However, other non-zero return values can be used to indicate specific error conditions or abnormal terminations.
+
+### Importance
+
+- When the `main()` function reaches its end, if there's no explicit return statement, or if `return;` is encountered, the behavior is the same as if `return 0;` were executed.
+- By explicitly using `return 0;`, the programmer clearly communicates to other developers (and to the operating system) that the program completed its execution successfully.
+- This is particularly important in larger programs or those that might be integrated into automated systems or scripts, where the return value may be checked to determine the success or failure of the program.
+
+## Example
+
+Here's an example demonstrating the usage of `return 0;` inside `int main()`:
 
 ```c
 #include <stdio.h>
