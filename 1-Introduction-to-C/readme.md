@@ -1,3 +1,5 @@
+#
+
 # Introduction to C Programming
 
 Welcome to the Introduction to C Programming! In this directory, I'll cover some very basic fundamental concepts of C programming.
@@ -26,6 +28,38 @@ C preprocessor commands begin with a `#` symbol. They are used for various tasks
 During the preprocessing stage, the compiler processes directives and performs actions specified by them. This includes inclusion of header files, macro expansion, and conditional compilation.
 
 Understanding preprocessor directives and their usage is fundamental in C programming, as they play a crucial role in code organization, modularity, and platform independence.
+
+#
+
+# Understanding the `int main()` Function in C
+
+In C programming, the `int main()` function serves as the entry point of a C program. It is where the program begins its execution. Let's break down each part of `int main()`:
+
+## `int`
+
+- `int` is the return type of the `main()` function. It indicates that the function returns an integer value to the calling environment (the operating system).
+- Conventionally, a return value of `0` indicates successful execution, while a non-zero value indicates an error.
+
+## `main()`
+
+- `main()` is the name of the function. It is a special function in C and must be present in every C program.
+- The parentheses `()` denote that `main` is a function and can accept arguments. However, in the simplest form, `main()` typically doesn't accept any arguments for most basic programs.
+- `main()` is the function where the program starts its execution. When the program is executed, the control jumps to the `main()` function and starts executing the statements inside it.
+
+### Putting It Together
+
+So, when we put `int` and `main()` together, `int main()` declares a function named `main` that returns an integer value. This function is the entry point of the C program.
+
+Here's a basic example demonstrating the usage of `int main()`:
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello, world!\n");
+    return 0; // Indicates successful execution
+}
+```
 
 Feel free to explore the code examples and additional resources provided in this repository to deepen your understanding of C programming.
 
