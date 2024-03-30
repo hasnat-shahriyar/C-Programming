@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 int main (){
+    printf("Hello ki khobor?");
     return 0;
 }
 
