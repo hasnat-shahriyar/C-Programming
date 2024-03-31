@@ -1,8 +1,10 @@
 ### Format Specifier
 
-In computer programming, a format specifier is a special character sequence used to specify the format of input or output data when dealing with formatted strings. It defines how data should be interpreted or displayed.
+a. In computer programming, a format specifier is a special character sequence used to specify the format of input or output data when dealing with formatted strings. It defines how data should be interpreted or displayed.
 
-Format specifiers are commonly used in functions like `printf()` and `scanf()` in languages such as C, C++, and other related languages. Here are some common format specifiers:
+b. Format specifiers are used in programming languages to indicate how a variable should be formatted when it is included in a string or output.
+
+c. Format specifiers are commonly used in functions like `printf()` and `scanf()` in languages such as C, C++, and other related languages. Here are some common format specifiers:
 
 - `%d`: Used for printing or scanning integers in decimal format.
 - `%f`: Used for printing or scanning floating-point numbers.
