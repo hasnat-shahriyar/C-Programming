@@ -28,7 +28,7 @@
     #include <stdio.h>
 
     int main() {
-        char hello[] = "Hello, World!"; // স্ট্রিং ডিক্লেয়ার করা হলো
+        char hello[] = "Hello, Nahin!"; // স্ট্রিং ডিক্লেয়ার করা হলো
         printf("%s\n", hello); // স্ট্রিং প্রিন্ট করা হলো
         return 0;
     }
