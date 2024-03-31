@@ -17,7 +17,7 @@ Welcome to the roadmap to mastering C programming! This guide will take you thro
 
 ### Modules:
 
-1. Pointers and Memory Management
+1. [Pointers and Memory Management](https://github.com/hasnat-shahriyar/C-Programming/tree/main/Milestone-2/1-Pointers%26MemoryManagement)
 2. Strings and Character Handling
 3. File Handling
 4. Structures and Unions
