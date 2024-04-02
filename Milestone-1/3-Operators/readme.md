@@ -84,3 +84,31 @@ int main() {
     return 0;
 }
 ```
+
+<i>Short Note : When performing division in a C program (or many other programming languages), if both operands are integers, the result will be an integer. This means that any fractional part will be truncated, and only the integer part will be returned.
+
+So, in the expression 5 / 2, since both 5 and 2 are integers, the result will be 2.
+
+However, if you want the result to include the fractional part, you need to ensure at least one of the operands is a floating-point number (a number with a decimal point). For example, if you use 5.0 / 2, or 5 / 2.0, or even 5.0 / 2.0, you'll get the result 2.5, because at least one of the operands is a floating-point number, forcing the division to be performed with floating-point arithmetic. </i>
+
+Example :
+
+```c
+#include <stdio.h>
+
+int main() {
+    // Division with integer operands
+    int result_integer = 5 / 2;
+    printf("Result with integer operands: %d\n", result_integer); // Output: 2
+
+    // Division with one integer and one floating-point operand
+    float result_float1 = 5 / 2.0; // 5 is treated as integer, 2.0 is treated as floating-point
+    printf("Result with one integer and one floating-point operand: %f\n", result_float1); // Output: 2.500000
+
+    // Division with both floating-point operands
+    float result_float2 = 5.0 / 2.0;
+    printf("Result with floating-point operands: %f\n", result_float2); // Output: 2.500000
+
+    return 0;
+}
+```
