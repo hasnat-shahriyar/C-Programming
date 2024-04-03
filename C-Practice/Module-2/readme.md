@@ -176,3 +176,136 @@ if (!(a == 10)) {
     printf("a is not equal to 10\n");
 }
 ```
+
+## Conditional Statements
+
+C-প্রোগ্রামে নির্দিষ্ট শর্তের উপর ভিত্তি করে প্রোগ্রাম এক্সিকিউসন নিয়ন্ত্রণ করতে ব্যবহৃত হয় ।
+
+The main conditional statements in C are:
+
+- `if`
+- `if-else`
+- `else if`
+- `switch`
+
+- ### `if` স্টেটমেন্ট:
+  কোন বিশেষ একটা শর্ত সত্য হলে তার ভিত্তিতে একটা বিশেষ কার্য সম্পাদনের জন্য ব্যবহার করা হয়
+
+Example :
+
+```c
+if (condition) {
+    // code block to be executed if condition is true
+}
+```
+
+```c
+int x = 10;
+if (x > 5) {
+    printf("x is greater than 5\n");
+}
+```
+
+- ### - `if-else` স্টেটমেন্ট
+  কোন বিশেষ একটা শর্ত সত্য হলে তার ভিত্তিতে সুনির্দিষ্ট একটা বিশেষ কার্য আর মিথ্যা হলে অপর একটা কার্য সম্পাদনের জন্য ব্যবহার করা হয়
+
+Example :
+
+```c
+if (condition) {
+    // code block to be executed if condition is true
+}
+else {
+    // code block to be executed if condition is false
+}
+
+```
+
+```c
+int x = 10;
+if (x > 5) {
+    printf("x is greater than 5\n");
+} else {
+    printf("x is not greater than 5\n");
+}
+```
+
+- ### `else if` স্টেটমেন্ট
+  কোন বিশেষ একটা শর্ত সত্য হলে তার ভিত্তিতে সুনির্দিষ্ট একটা বিশেষ কার্য আর মিথ্যা হলে অপর এক বা একাধিক শর্ত বিশ্লেষণ করে তার উপর ভিত্তি করে একটা বিশেষ কার্য সম্পাদনের জন্য ব্যবহার করা হয়
+  Example :
+
+```c
+if (condition1) {
+    // code block to be executed if condition1 is true
+}
+else if (condition2) {
+    // code block to be executed if condition1 is false and condition2 is true
+}
+else {
+    // code block to be executed if both condition1 and condition2 are false
+}
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    int num = 10;
+
+    if (num > 0) {
+        printf("Number is positive\n");
+    }
+    else if (num == 0) {
+        printf("Number is zero\n");
+    }
+    else {
+        printf("Number is negative\n");
+    }
+
+    return 0;
+}
+```
+
+- ### - `switch` স্টেটমেন্ট
+  কোন একটা শর্তের বিভিন্ন ইনপুট এর উপর ভিত্তি করে এক সেট কার্যের মধ্যে থেকে একটা বিশেষ কার্য সম্পাদনের জন্য ব্যবহার করা হয়
+
+Example :
+
+```c
+switch (expression) {
+    case constant1:
+        // code block to be executed if expression equals constant1
+        break;
+    case constant2:
+        // code block to be executed if expression equals constant2
+        break;
+    // more case statements as needed
+    default:
+        // code block to be executed if expression doesn't match any case
+}
+
+```
+
+```c
+#include <stdio.h>
+
+int main() {
+    int choice = 2;
+
+    switch (choice) {
+        case 1:
+            printf("You chose option 1\n");
+            break;
+        case 2:
+            printf("You chose option 2\n");
+            break;
+        case 3:
+            printf("You chose option 3\n");
+            break;
+        default:
+            printf("Invalid choice\n");
+    }
+
+    return 0;
+}
+```
