@@ -2,7 +2,7 @@
 
 ## Arithmetic Operator (অ্যারিথমেটিক অপারেটরস)
 
-পাটি গনিতে আমরা যে সকল Operators ব্যাবহার করেছি তাই হল Arithmetic Operators। যেমন যোগ, গুন, ভাগ ইত্যাদি।
+পাটি গনিতে আমরা যে সকল Operators ব্যাবহার করেছি তাই হল Arithmetic Operators। যেমন যোগ, বিয়োগ, গুন, ভাগ ইত্যাদি।
 
 - ### Operator :
 
@@ -39,3 +39,21 @@ int main() {
     return 0;
 }
 ```
+
+## Relational Operator (রিলেশনাল অপারেটর)
+
+যেসব অপারেটর দুটো অপারেন্ডের মধ্যে তুলনা বা সম্পর্ক বুঝানোর জন্য ব্যবহৃত হয় তাকে রিলেশনাল অপারেটর বলে ।
+
+### Operator
+
+- `==` (Equal to)
+
+- `!=` (Not equal to)
+
+- `<` (Less then; )
+
+- `<=` (Less than or equal to)
+
+- `>` (Greater than)
+
+- `>=` (Greater than or equal to )
