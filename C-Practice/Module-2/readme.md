@@ -118,3 +118,15 @@ if (a >= b) {
     printf("a is greater than or equal to b\n");
 }
 ```
+
+- ### Less than or equal to (<=):
+  এই অপারেটরটি চেক করে যে, বামপাশের অপারেন্ডটি ডানপাশের অপারেন্ডের তুলনায় 'ছোট' অথবা 'সমান' কিনা । বামপাশের অপারেন্ড ডানপাশের অপারেন্ডের তুলনায় 'ছোট' অথবা 'সমান' হলে এটি `true` রিটার্ন করবে, নয়তো `false`.
+
+Example:
+
+```c
+int a = 5, b = 10;
+if (a <= b) {
+    printf("a is less than or equal to b\n");
+}
+```
