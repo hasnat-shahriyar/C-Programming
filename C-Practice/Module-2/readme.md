@@ -57,3 +57,15 @@ int main() {
 - `>` (Greater than)
 
 - `>=` (Greater than or equal to )
+
+- ### Equal to (==):
+  এই অপারেটরটি চেক করে যে দুটো অপারেন্ড সমান কিনা । যদি অপারেন্ড দুটি সমান হয় তাহলে এটা true রিটার্ন করবে, আর নাহলে false.
+
+Example:
+
+```c
+int a = 5, b = 5;
+if (a == b) {
+    printf("a is equal to b\n");
+}
+```
