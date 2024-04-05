@@ -15,3 +15,18 @@ int main(int argc, char const *argv[])
     }
     return 0;
 }
+// Problem Description
+/*
+You need to take one integer value as input and tell if the value is positive or negative or zero.
+__________________
+Sample Input :
+10
+-50
+0
+__________________
+Sample Output :
+positive
+negative
+zero
+
+*/
