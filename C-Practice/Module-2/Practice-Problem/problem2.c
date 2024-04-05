@@ -28,5 +28,7 @@ int main()
     printf("Your Multiplication Result : %d * %d = %d\n", a, b, multiply);
     // Division
     printf("Your Division Result : %d / %d = %d\n", a, b, division);
+    // Just the output without mentioning the values
+    printf("Your Division Result : %d\n", division);
     return 0;
 }
