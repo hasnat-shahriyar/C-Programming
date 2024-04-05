@@ -106,3 +106,18 @@ Loop (লুপ) সাধারণত ৩ প্রকার
     c. লুপটি চলতে থাকবে যতক্ষণ পর্যন্ত শর্ত (`condition`) `i < 5` মিথ্যা (`false`) হচ্ছে ।
 
   - একবার `i` এর ভ্যালু `5` পর্যন্ত চলে গেলে, লুপের শর্ত `i < 5` মিথ্যা (`false`) হয়ে যায়, এবং লুপ সেখানেই শেষ (`terminates`) হয়ে যায় ।
+
+<i><b>Note : </b>In C programming, `i += 1` is a shorthand notation for incrementing the value of the variable `i` by 1. It is equivalent to `i = i + 1`. This operation is commonly used to increase the value of a variable by 1.
+
+For example:
+
+```c
+int i = 0;
+i += 1;
+```
+
+After executing this code, the value of `i` will be incremented by 1. So, initially `i` was 0, and after the operation, `i` will become 1.
+
+Similarly, you can use `i -= 1` to decrement `i` by 1, which is equivalent to `i = i - 1`.
+
+This shorthand notation is convenient and commonly used in programming to make the code more concise and readable.</i>
