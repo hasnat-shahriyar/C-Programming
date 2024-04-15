@@ -26,16 +26,16 @@
   - Increment Operator এর মতোই, `--` ভ্যারিয়েবলের মানকে `1` করে decrement (হ্রাস) করে ।
   - `--` দিয়েও <i> pre-decrement (পূর্ব-হ্রাস)</i> অথবা <i>post-decrement (পরে-হ্রাস)</i> অপারেটর হিসেবে ব্যবহার করা যেতে পারে, সেই একই যুক্তি ব্যবহার করে যেটা আমরা increment operator এর ক্ষেত্রে ব্যবহার করেছিলাম ।
 
-  উদাহরণ :
+    উদাহরণ :
 
-  ```c
-  int x = 10;
-    int y;
+    ```c
+    int x = 10;
+      int y;
 
-    y = --x; // Decrement 'x' by 1, then assign the decremented value to 'y'
-    // Now, 'x' is 9, 'y' is 9
+      y = --x; // Decrement 'x' by 1, then assign the decremented value to 'y'
+      // Now, 'x' is 9, 'y' is 9
 
-    y = x--; // Assign the current value of 'x' to 'y', then decrement 'x' by 1
-    // Now, 'x' is 8, 'y' is 9
+      y = x--; // Assign the current value of 'x' to 'y', then decrement 'x' by 1
+      // Now, 'x' is 8, 'y' is 9
 
-  ```
+    ```
