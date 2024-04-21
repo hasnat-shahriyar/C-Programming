@@ -132,15 +132,17 @@ Let's consider the example where `n = 5`, and the initial array is `{10, 20, 30,
    - It prints each element of the modified array, effectively skipping the last element (which was shifted and duplicated).
    - In our example, it prints `10 30 40 50`.
 
-Now, let's address the specific parts you asked about:
+<i>
+
+Now, let's address the specific important parts :
 
 - `int i = pos; i < n - 1; i++`:
   - Here, `i` is initialized to `pos`, which is the position to start removing elements.
   - The loop continues as long as `i` is less than `n - 1`. This ensures that we stop at the second-to-last element of the array.
 - `ar[i] = ar[i + 1];`:
   - This line shifts each element one position to the left, effectively removing the element at the specified position.
-- `for (int i = 0; i < n - 1; i++)`:
+- `for (int i = 0; i <i n - 1; i++)`:
   - Here, `i` is initialized to `0`, starting from the beginning of the array.
   - The loop continues until `i` is less than `n - 1`, which ensures that we stop at the second-to-last element of the modified array. This is because we have removed one element, so the length of the modified array is `n - 1`.
 
-Let me know if you need further clarification on any part!
+</i>
