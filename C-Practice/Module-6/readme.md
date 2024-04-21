@@ -1,6 +1,6 @@
 # Array Operations
 
-## Insert
+## Array : Insert
 
 ```c
 #include <stdio.h>
@@ -82,3 +82,65 @@ For example, if `pos = 2`, then `pos + 1 = 3`. This means we start shifting elem
 
 In the loop `for (int i = n; i >= pos + 1; i--)`, `i` starts from the last index (`n`) and iterates backwards until it reaches `pos + 1`. This ensures that we shift elements starting from the position after the insertion point until we reach the insertion point itself.
 </i>
+
+## Array : Remove
+
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int ar[n]; // Declare an array of size n
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &ar[i]); // Input elements into the array
+    }
+    int pos;
+    scanf("%d", &pos); // Input the position to remove
+
+    // Shift elements to the left starting from the specified position
+    for (int i = pos; i < n - 1; i++) {
+        ar[i] = ar[i + 1];
+    }
+
+    // Print the modified array without the removed element
+    for (int i = 0; i < n - 1; i++) {
+        printf("%d ", ar[i]);
+    }
+
+    return 0;
+}
+```
+
+Let's consider the example where `n = 5`, and the initial array is `{10, 20, 30, 40, 50}`. We want to remove the element at position `1`.
+
+1. **Input and Initialization:**
+
+   - The code starts by reading the size of the array `n`, which is `5` in our case.
+   - Then, it reads `n` elements into the array: `{10, 20, 30, 40, 50}`.
+   - Next, it reads the position to remove, which is `1`.
+
+2. **Removing the Element:**
+
+   - The loop `for (int i = pos; i < n - 1; i++)` starts from the specified position to remove (`pos`) and continues until the second-to-last element of the array (`n - 1`).
+   - The loop iterates through the array, shifting each element to the left by one position. This effectively removes the element at the specified position.
+   - In our example, starting from `i = 1` (the position to remove), it shifts `ar[1] = ar[2]`, `ar[2] = ar[3]`, `ar[3] = ar[4]`.
+   - After the loop, the array becomes `{10, 30, 40, 50, 50}`.
+
+3. **Printing the Modified Array:**
+   - The loop `for (int i = 0; i < n - 1; i++)` starts from `i = 0` and continues until the second-to-last element of the modified array (`n - 1`).
+   - It prints each element of the modified array, effectively skipping the last element (which was shifted and duplicated).
+   - In our example, it prints `10 30 40 50`.
+
+Now, let's address the specific parts you asked about:
+
+- `int i = pos; i < n - 1; i++`:
+  - Here, `i` is initialized to `pos`, which is the position to start removing elements.
+  - The loop continues as long as `i` is less than `n - 1`. This ensures that we stop at the second-to-last element of the array.
+- `ar[i] = ar[i + 1];`:
+  - This line shifts each element one position to the left, effectively removing the element at the specified position.
+- `for (int i = 0; i < n - 1; i++)`:
+  - Here, `i` is initialized to `0`, starting from the beginning of the array.
+  - The loop continues until `i` is less than `n - 1`, which ensures that we stop at the second-to-last element of the modified array. This is because we have removed one element, so the length of the modified array is `n - 1`.
+
+Let me know if you need further clarification on any part!

@@ -3,22 +3,24 @@
 int main(){
     int n;
     scanf("%d", &n);
-    int ar[n+1];
+    int ar[n];
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &ar[i]);
     }
-    int pos, value;
-    scanf("%d %d", &pos, &value);
-    for (int i = n; i >= pos+1; i--)
+    int pos;
+    scanf("%d", &pos);
+
+    for (int i = pos; i < n-1; i++)
     {
-        ar[i] = ar[i-1];
+        ar[i] = ar [i + 1];
     }
-    ar[pos] = value;
-    for (int i = 0; i <= n; i++)
+
+    for (int i = 0; i < n-1; i++)
     {
         printf("%d ", ar[i]);
     }
+    
     
     return 0;
 }
