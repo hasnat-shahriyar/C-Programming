@@ -59,3 +59,26 @@ Let's visualize the array after each step:
 4. After shifting elements: `3 7 7 2 8`
 5. After inserting new value: `3 10 7 2 8`
 6. Final array: `3 10 7 2 8`
+
+<i>
+
+The concept of `pos + 1`.
+
+In the context of the code, `pos + 1` represents the position just after the position where we want to insert the new element.
+
+Here's why it's used:
+
+1. **Insertion Position (`pos`):**
+
+   - `pos` represents the index where we want to insert the new element.
+   - Let's say we want to insert the new element at index `pos`.
+
+2. **Position After Insertion (`pos + 1`):**
+   - After inserting a new element at index `pos`, we need to shift the elements to the right to make space for it.
+   - `pos + 1` represents the index just after the position where we want to insert the new element.
+   - This is the index we start shifting elements from.
+
+For example, if `pos = 2`, then `pos + 1 = 3`. This means we start shifting elements from index `3` onwards to the right to make space for the new element at index `2`.
+
+In the loop `for (int i = n; i >= pos + 1; i--)`, `i` starts from the last index (`n`) and iterates backwards until it reaches `pos + 1`. This ensures that we shift elements starting from the position after the insertion point until we reach the insertion point itself.
+</i>
