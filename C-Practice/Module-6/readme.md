@@ -146,3 +146,7 @@ Now, let's address the specific important parts :
   - The loop continues until `i` is less than `n - 1`, which ensures that we stop at the second-to-last element of the modified array. This is because we have removed one element, so the length of the modified array is `n - 1`.
 
 </i>
+
+## Array : Reverse
+
+### <i> Two Pointers Technique </i>
