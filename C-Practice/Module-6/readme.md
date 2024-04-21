@@ -150,3 +150,73 @@ Now, let's address the specific important parts :
 ## Array : Reverse
 
 ### <i> Two Pointers Technique </i>
+
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int ar[n];
+
+    // Input elements into the array
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &ar[i]);
+    }
+
+    int i = 0, j = n - 1; // Initialize two pointers i and j
+
+    // Reverse the array using two pointers
+    while (i < j) {
+        int temp = ar[i]; // Swap elements at positions i and j
+        ar[i] = ar[j];
+        ar[j] = temp;
+        i++; // Move i towards the end of the array
+        j--; // Move j towards the beginning of the array
+    }
+
+    // Print the reversed array
+    for (int i = 0; i < n; i++) {
+        printf("%d ", ar[i]);
+    }
+
+    return 0;
+}
+```
+
+Let's consider an example where `n = 5` and the initial array is `{1, 2, 3, 4, 5}`. We want to reverse this array.
+
+1. **Input and Initialization:**
+
+   - The code reads the size of the array `n`, which is `5` in our case.
+   - Then, it reads `n` elements into the array.
+   - Two pointers `i` and `j` are initialized. `i` starts from the beginning of the array (index `0`), and `j` starts from the end of the array (index `n - 1`).
+
+2. **Reversing the Array:**
+
+   - The `while` loop `while (i < j)` runs until `i` becomes greater than or equal to `j`. This condition ensures that we don't swap elements twice and covers all elements in the array.
+   - Inside the loop:
+     - `temp` variable is used to temporarily store the value of `ar[i]` to prevent it from being overwritten.
+     - The values of `ar[i]` and `ar[j]` are swapped.
+     - `i` is incremented to move towards the end of the array.
+     - `j` is decremented to move towards the beginning of the array.
+   - This process continues until `i` is no longer less than `j`.
+
+3. **Printing the Reversed Array:**
+   - After the loop, the array is reversed.
+   - The code then prints the reversed array.
+
+Now, let's address the specific and important parts :
+
+- `int i = 0, j = n - 1;`:
+  - This initializes two pointers `i` and `j`.
+  - `i` starts from the beginning of the array (index `0`).
+  - `j` starts from the end of the array (index `n - 1`), covering the last element of the array.
+- `while (i < j)`:
+  - This condition ensures that the loop continues until `i` becomes greater than or equal to `j`, indicating that all elements have been processed.
+- `i++;` and `j--;`:
+  - `i` is incremented to move towards the end of the array.
+  - `j` is decremented to move towards the beginning of the array.
+  - These operations ensure that we cover all elements in the array and reverse them properly.
+
+In summary, the code uses two pointers (`i` and `j`) to reverse the array by swapping elements from both ends towards the middle until they meet. This approach efficiently reverses the array in-place without requiring extra memory.
