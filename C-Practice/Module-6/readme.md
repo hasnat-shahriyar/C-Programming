@@ -134,7 +134,7 @@ Let's consider the example where `n = 5`, and the initial array is `{10, 20, 30,
 
 <i>
 
-Now, let's address the specific important parts :
+Now, let's address the specific important parts:
 
 - `int i = pos; i < n - 1; i++`:
   - Here, `i` is initialized to `pos`, which is the position to start removing elements.
@@ -206,7 +206,7 @@ Let's consider an example where `n = 5` and the initial array is `{1, 2, 3, 4, 5
    - After the loop, the array is reversed.
    - The code then prints the reversed array.
 
-Now, let's address the specific and important parts :
+Now, let's address the specific and important parts:
 
 - `int i = 0, j = n - 1;`:
   - This initializes two pointers `i` and `j`.
@@ -220,3 +220,105 @@ Now, let's address the specific and important parts :
   - These operations ensure that we cover all elements in the array and reverse them properly.
 
 In summary, the code uses two pointers (`i` and `j`) to reverse the array by swapping elements from both ends towards the middle until they meet. This approach efficiently reverses the array in-place without requiring extra memory.
+
+## Array : Copy element in Array
+
+```c
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int a[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    int m;
+    scanf("%d", &m);
+    int b[m];
+    for (int i = 0; i < m; i++) {
+        scanf("%d", &b[i]);
+    }
+
+    // Merging arrays a and b into array ans
+    int ans[n + m]; // Create an array to store merged elements
+    for (int i = 0; i < n; i++) {
+        ans[i] = a[i]; // Copy elements of array a into ans
+    }
+    int i = n; // Start filling ans from index n
+    for (int j = 0; j < m; j++) {
+        ans[i] = b[j]; // Append elements of array b into ans
+        i++;
+    }
+
+    // Print the merged array ans
+    for (int i = 0; i < n + m; i++) {
+        printf("%d ", ans[i]);
+    }
+
+    return 0;
+}
+```
+
+Let's consider the input:
+
+```
+5
+10 20 30 40 50
+2
+60 70
+```
+
+1. **Reading Inputs:**
+
+   - The code reads the size of the first array `n`, which is `5` in our case, followed by its elements.
+   - It then reads the size of the second array `m`, which is `2` in our case, followed by its elements.
+
+2. **Merging Arrays:**
+
+   - An array `ans` of size `n + m` is created to store the merged elements.
+   - The elements of array `a` are copied into the beginning of `ans` using the loop `for (int i = 0; i < n; i++) { ans[i] = a[i]; }`.
+   - Then, a pointer `i` is set to `n`, the position after the last element of array `a`.
+   - Next, the elements of array `b` are appended to `ans` using the loop `for (int j = 0; j < m; j++) { ans[i] = b[j]; i++; }`. The pointer `i` is incremented after each assignment to fill the remaining part of `ans` with elements from `b`.
+
+3. **Printing Merged Array:**
+   - Finally, the merged array `ans` is printed.
+
+Let's address the specific important parts:
+
+- `int ans[n + m];` and `for (int i = 0; i < n; i++) { ans[i] = a[i]; }`:
+  - Here, a new array `ans` is created to store the merged elements of arrays `a` and `b`.
+  - The elements of array `a` are copied into the beginning of `ans` because they appear first in the merged array.
+- `int i = n;` and `for (int j = 0; j < m; j++) { ans[i] = b[j]; i++; }`:
+  - `i` is set to `n` to start filling `ans` from the position after the last element of array `a`.
+  - Then, the elements of array `b` are appended to `ans` starting from position `n`.
+- `for (int i = 0; i < n + m; i++) { printf("%d ", ans[i]); }`:
+  - This loop prints all elements of the merged array `ans`, which has a size of `n + m`. The loop runs from `i = 0` to `n + m - 1`.
+
+<i>
+
+1. **Array `a`:**
+
+   - Size: `5`
+   - Elements: `10 20 30 40 50`
+
+2. **Array `b`:**
+
+   - Size: `2`
+   - Elements: `60 70`
+
+3. **Merging Arrays:**
+   - `int ans[n + m];` creates a new array `ans` with a size of `5 + 2 = 7` to store the merged elements.
+   - `for (int i = 0; i < n; i++) { ans[i] = a[i]; }` copies the elements of array `a` into the beginning of `ans` because they appear first in the merged array. This step results in:
+     - `ans`: `10 20 30 40 50 _ _` (underscores represent empty positions)
+   - `int i = n;` sets `i` to `5`, starting to fill `ans` from the position after the last element of array `a`.
+   - `for (int j = 0; j < m; j++) { ans[i] = b[j]; i++; }` appends the elements of array `b` to `ans` starting from position `5`. This step results in:
+     - `ans`: `10 20 30 40 50 60 70`
+     - Now, `ans` contains all the elements from both arrays `a` and `b` in the correct order.
+4. **Printing Merged Array:**
+   - `for (int i = 0; i < n + m; i++) { printf("%d ", ans[i]); }` prints all elements of the merged array `ans`, which has a size of `5 + 2 = 7`. The loop runs from `i = 0` to `n + m - 1 = 7 - 1 = 6`, printing:
+     - `10 20 30 40 50 60 70`
+
+This process demonstrates how the arrays `a` and `b` are merged into a new array `ans`, ensuring that the elements are correctly copied and printed according to their positions.
+</i>
