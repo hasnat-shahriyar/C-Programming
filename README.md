@@ -1,6 +1,38 @@
 # Roadmap to Master C Programming
 
-Welcome to the roadmap to mastering C programming! This guide will take you through a structured approach to learning C programming. Each milestone consists of specific modules to focus on, along with suggested resources and exercises.
+Welcome to the C Programming Repository! This guide will take you through a structured approach to learning C programming. You can navigate through the **C-Practice Modules** to focus on specific topics.
+
+## C-Practice
+
+### Module-1
+
+- [Basic Syntax, Variables, and Data Types | Memory Management and Format Specifiers](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-1)
+
+### Module-2
+
+- [Operators and Conditional Statements](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-2)
+
+### Module-3
+
+- [Loops](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-3)
+
+### Module-4
+
+- [Unary Operators | Increment and Decrement](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-4)
+
+### Module-5
+
+- [Arrays](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-5)
+
+### Module-6
+
+- [Array Operations | Remove, Reverse, and Copy](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-6)
+
+### Module-7
+
+- [Strings](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-7)
+
+# Alternatively, follow each milestone which consists of specific modules to focus on:
 
 ## Milestone 1: Introduction to C Basics (Week 1)
 
@@ -40,4 +72,4 @@ Welcome to the roadmap to mastering C programming! This guide will take you thro
 3. Introduction to Makefiles
 4. Debugging and Testing Strategies
 
-Feel free to reach out to the programming community for support and guidance as you continue your journey in C programming.
+Feel free to reach out to me if you find any mistakes or have suggestions.
