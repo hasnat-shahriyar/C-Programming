@@ -110,3 +110,54 @@ In summary, changing the size of the array from 5 to 6 allows it to store one mo
 So, if you have an array (like a classroom) that can hold 5 characters, its size is 5. But if you put "hello" into it, which has 5 characters, the length of what's inside the array is also 5. If the array's size is smaller than the length of what you want to put into it, some characters might not fit, just like some students wouldn't fit in a smaller classroom.
 
 #
+
+# Input String Handling in C
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char a[7]; // Declaring a character array 'a' with a size of 7
+    fgets(a, 7, stdin); // Getting input from the user and storing it in 'a', maximum 6 characters plus null terminator
+    a[6] = '\0'; // Manually adding null terminator at the end of the string
+    printf("Full Name = %s\n", a); // Printing the full name
+    printf("Size of = %d\n", sizeof(a)); // Printing the size of the array
+    printf("Length of = %d\n", strlen(a)); // Printing the length of the string
+    return 0;
+}
+```
+
+1. **`char a[7];`**:
+
+   - This line declares an array `a` capable of holding 7 characters. The extra space is reserved for the null terminator `'\0'`, which marks the end of the string.
+
+2. **`fgets(a, 7, stdin);`**:
+
+   - `fgets()` function reads a string from the standard input (in this case, from the keyboard).
+   - It reads up to 6 characters from the input (leaving space for the null terminator) and stores them in the array `a`.
+   - It stops reading when it encounters a newline character ('\n') or reaches the specified maximum number of characters minus one (for the null terminator).
+
+3. **`a[6] = '\0';`**:
+
+   - This line explicitly adds a null terminator at the 6th index of the array `a`.
+   - Since array indices start from 0, `a[6]` refers to the 7th position in the array.
+
+4. **`printf("Full Name = %s\n", a);`**:
+
+   - This line prints the full name stored in the array `a`.
+
+5. **`printf("Size of = %d\n", sizeof(a));`**:
+
+   - This line prints the size of the array `a`.
+   - The `sizeof()` operator returns the size of its operand in bytes. In this case, it returns the total size of the array `a`, including the null terminator.
+
+6. **`printf("Length of = %d\n", strlen(a));`**:
+   - This line prints the length of the string stored in the array `a`.
+   - `strlen()` function calculates the length of the string by counting the number of characters until it encounters the null terminator.
+
+Now, let's suppose the input is "hasnat":
+
+- After input, the array `a` would contain "hasnat\0" (6 characters including the null terminator).
+- The size of the array `a` is 7 (6 characters + 1 null terminator).
+- The length of the string "hasnat" is 6.
