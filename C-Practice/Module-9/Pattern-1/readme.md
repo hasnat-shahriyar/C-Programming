@@ -1,4 +1,4 @@
-# Pyramid Pattern
+# Triangle Pattern
 
 To prints a pattern of asterisks (`*`) in a triangular shape. Let's walk through it with an example input value for `n` (let's say `n = 5`).
 
@@ -77,22 +77,22 @@ So, `k++` is used to increment the variable controlling the number of asterisks 
 
 #
 
-# Reverse Pyramid Pattern
+# Reverse Triangle Pattern
 
 1. **Input from You:**
 
-   - Similar to the previous program, we start by asking you for a number (`n`). This number will determine the height of our pyramid, but this time, it will be an upside-down pyramid.
+   - Similar to the previous program, we start by asking you for a number (`n`). This number will determine the height of our triangle, but this time, it will be an upside-down triangle.
 
 2. **Setting Up Our Tools:**
 
-   - We set up two tools again: `n`, to remember how tall the pyramid should be, and `k`, which will help us decide how many stars to put in each row. This time, we set `k` to be the same as `n` because in each row, we'll print the same number of stars as the height of the pyramid decreases.
+   - We set up two tools again: `n`, to remember how tall the triangle should be, and `k`, which will help us decide how many stars to put in each row. This time, we set `k` to be the same as `n` because in each row, we'll print the same number of stars as the height of the triangle decreases.
 
-3. **Building the Upside-Down Pyramid:**
+3. **Building the Upside-Down Triangle:**
    - We use two loops again:
-     - The outer loop, which we'll call our "row" loop, starts at `n` and goes down to 1. This loop controls how many rows our pyramid will have.
-     - The inner loop, our "star" loop, decides how many stars to put in each row. Here, `k` tells us how many stars to print in each row, which decreases as we move down the pyramid.
+     - The outer loop, which we'll call our "row" loop, starts at `n` and goes down to 1. This loop controls how many rows our triangle will have.
+     - The inner loop, our "star" loop, decides how many stars to put in each row. Here, `k` tells us how many stars to print in each row, which decreases as we move down the triangle.
 
-Now, let's visualize how this upside-down pyramid looks with `n = 5`:
+Now, let's visualize how this upside-down triangle looks with `n = 5`:
 
 ```
 *****
@@ -106,7 +106,7 @@ Let's break it down, step by step:
 
 1. **First Row (Iteration 1):**
 
-   - We're at the top of the pyramid (`i = 5`), and we draw five stars (`k = 5`).
+   - We're at the top of the triangle (`i = 5`), and we draw five stars (`k = 5`).
 
    ```
    *****
@@ -137,17 +137,17 @@ Let's break it down, step by step:
    ```
 
 5. **Fifth Row (Iteration 5):**
-   - Finally, at the bottom of the pyramid (`i = 1`), we draw one star (`k = 1`).
+   - Finally, at the bottom of the triangle (`i = 1`), we draw one star (`k = 1`).
    ```
    *
    ```
 
-This process continues until we've drawn all the rows, descending to the bottom of the upside-down pyramid.
+This process continues until we've drawn all the rows, descending to the bottom of the upside-down triangle.
 
 Now, about the `k--` part:
 
 1. **Purpose of `k--`:** After drawing each row, we need to prepare for the next row by decreasing the number of stars (`k`) by one. That's what `k--` does; it subtracts one from the number of stars before we draw the next row.
 
-2. **Placement Inside the Row Loop:** We put `k--` inside the outer loop because we want to decrease the number of stars after drawing each row. This way, we'll have one less star in each subsequent row as we move down the pyramid.
+2. **Placement Inside the Row Loop:** We put `k--` inside the outer loop because we want to decrease the number of stars after drawing each row. This way, we'll have one less star in each subsequent row as we move down the triangle.
 
-So, `k--` helps us decrease the number of stars for each row, and it's placed inside the outer loop to ensure we decrease the number of stars after drawing each row, forming our upside-down pyramid.
+So, `k--` helps us decrease the number of stars for each row, and it's placed inside the outer loop to ensure we decrease the number of stars after drawing each row, forming our upside-down triangle.
