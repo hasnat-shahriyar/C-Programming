@@ -42,7 +42,7 @@ Welcome to the C Programming Repository! This guide will take you through a stru
 
 ### Module - 10
 
-- [Function and Pointer]()
+- [Function and Pointer](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-10)
 
 # Alternatively, follow each milestone which consists of specific modules to focus on:
 
