@@ -4,37 +4,41 @@ Welcome to the C Programming Repository! This guide will take you through a stru
 
 ## C-Practice
 
-### Module-1
+### Module - 1
 
 - [Basic Syntax, Variables, and Data Types | Memory Management and Format Specifiers](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-1)
 
-### Module-2
+### Module - 2
 
 - [Operators and Conditional Statements](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-2)
 
-### Module-3
+### Module - 3
 
 - [Loops](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-3)
 
-### Module-4
+### Module - 4
 
 - [Unary Operators | Increment and Decrement](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-4)
 
-### Module-5
+### Module - 5
 
 - [Arrays](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-5)
 
-### Module-6
+### Module - 6
 
 - [Array Operations | Remove, Reverse, and Copy](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-6)
 
-### Module-7
+### Module - 7
 
 - [Strings](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-7)
 
-### Module-8
+### Module - 8
 
 - [String Operations and Frequency Array | Copy, Lexicographical Comparison, Concatenation, Counting Array](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-8)
+
+### Module - 9
+
+- [Nested Loop](https://github.com/hasnat-shahriyar/C-Programming/tree/main/C-Practice/Module-9)
 
 # Alternatively, follow each milestone which consists of specific modules to focus on:
 
