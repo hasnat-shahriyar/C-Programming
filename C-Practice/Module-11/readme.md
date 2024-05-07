@@ -142,3 +142,78 @@ int main()
    - Finally, the value of the third element of the array is printed using array indexing (`ar[2]`). This expression directly accesses the value at index 2 of the array.
 
 In summary, in C, arrays can decay into pointers, meaning that the array name can be used as a pointer to the first element of the array. Pointer arithmetic can be used to navigate through array elements, and dereferencing pointers allows access to the values stored at those memory locations.
+
+## Array and Pointer
+
+This code demonstrates the usage of arrays and pointers in C, particularly in the context of passing arrays to functions. Let's go through it step by step:
+
+```c
+#include <stdio.h>
+
+// Function to print array elements using array notation
+void fun(int ar[], int n)
+{
+    // Iterate over each element of the array
+    for (int i = 0; i < n; i++)
+    {
+        // Print the current element
+        printf("%d ", ar[i]);
+    }
+}
+
+// Function to print array elements using pointer notation
+void ptr(int *ar, int n)
+{
+    // Iterate over each element of the array
+    for (int i = 0; i < n; i++)
+    {
+        // Print the current element using pointer notation
+        printf("%d ", ar[i]);
+    }
+}
+
+int main()
+{
+    // Declare and initialize an integer array
+    int ar[5] = {10, 20, 30, 40, 50};
+
+    // Calculate the size of the array in bytes
+    int size_array = sizeof(ar);
+
+    // Calculate the number of elements in the array
+    int size_array2 = sizeof(ar) / sizeof(int);
+
+    // Print the size of the array in bytes
+    printf("Array ar contains %d bytes\n", size_array);
+
+    // Print the number of elements in the array
+    printf("Number of elements in array ar: %d\n", size_array2);
+
+    // Call the function fun to print array elements using array notation
+    fun(ar, 5);
+    printf("\n");
+
+    // Call the function ptr to print array elements using pointer notation
+    ptr(ar, 5);
+
+    return 0;
+}
+```
+
+1. **Function `fun`**:
+
+   - This function takes an array `ar` and the number of elements `n` as parameters.
+   - It iterates over each element of the array using array notation (`ar[i]`) and prints the current element.
+
+2. **Function `ptr`**:
+
+   - Similar to `fun`, this function takes an array `ar` and the number of elements `n` as parameters.
+   - It iterates over each element of the array using pointer notation (`ar[i]`) and prints the current element.
+
+3. **`main` Function**:
+   - An integer array `ar` of size 5 is declared and initialized with values `{10, 20, 30, 40, 50}`.
+   - The size of the array in bytes is calculated using `sizeof(ar)` and printed.
+   - The number of elements in the array is calculated by dividing the size of the array by the size of an integer (`sizeof(int)`).
+   - Both functions `fun` and `ptr` are called to print array elements using array and pointer notation respectively.
+
+In summary, this code illustrates how to pass arrays to functions in C using both array notation and pointer notation. It also demonstrates how to calculate the size of an array and the number of elements it contains.
