@@ -1,5 +1,7 @@
 # Function and Pointer
 
+## Function
+
 A function in C programming is like a mini-program within a bigger program. It's a way to organize your code so that you can reuse parts of it without having to write the same code over and over again.
 
 Think of a function like a recipe in a cookbook. The recipe tells you how to make a specific dish, and you can use that recipe whenever you want to make that dish. Similarly, a function in C programming tells the computer how to do a specific task, and you can use that function whenever you need to perform that task.
