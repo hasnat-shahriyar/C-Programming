@@ -95,7 +95,7 @@ In summary, call by reference allows a function to modify the original variable 
 
 ## Array and Pointer
 
-Relationship between arrays and pointers in C :
+Relationship between arrays and pointers in C:
 
 ```c
 #include <stdio.h>
@@ -259,3 +259,81 @@ int main() {
    - The `name_length` function is called with the `str` array as an argument. Since arrays decay into pointers when passed to functions, `name_length` receives a pointer to the first character of the array.
 
 In summary, this code example demonstrates how to use functions in C to perform specific tasks (such as calculating the length of a string) and how strings are represented and manipulated using character arrays.
+
+## Function with Array as Reference
+
+Concept of passing arrays to functions as references (or pointers) in C:
+
+```c
+#include <stdio.h>
+
+// Function to print array elements and modify one of its elements
+void fun(int *ar, int n)
+{
+    // Print the array elements
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", ar[i]);
+    }
+    printf("\n");
+
+    // Modify the element at index 2 of the array
+    ar[2] = 300;
+}
+
+// Function to modify characters in a string
+void name(char *str)
+{
+    // Modify the first and fourth characters of the string
+    str[0] = 'H';
+    str[3] = 'n';
+}
+
+int main()
+{
+    // Integer array declaration and initialization
+    int ar[5] = {10, 20, 30, 40, 50};
+
+    // Call the function fun with the array ar
+    fun(ar, 5);
+
+    // Print the array elements after modification
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%d ", ar[i]);
+    }
+    printf("\n");
+
+    // Character array declaration and initialization
+    char str[] = "Gasmat";
+
+    // Call the function name with the string str
+    name(str);
+
+    // Print the modified string
+    printf("%s\n", str);
+
+    return 0;
+}
+```
+
+1. **Function `fun`**:
+
+   - This function takes an integer array `ar` and its size `n` as parameters.
+   - Inside the function, a `for` loop iterates over each element of the array and prints its value.
+   - After printing the array elements, it modifies the element at index 2 of the array to the value 300.
+
+2. **Function `name`**:
+
+   - This function takes a character array `str` (string) as a parameter.
+   - It modifies the first character of the string to `'H'` and the fourth character to `'n'`.
+
+3. **`main` Function**:
+   - In `main`, an integer array `ar` is declared and initialized with values `{10, 20, 30, 40, 50}`.
+   - The `fun` function is called with the array `ar` as an argument. Since arrays decay into pointers when passed to functions, `fun` receives a pointer to the first element of the array. This allows `fun` to directly modify the elements of the original array.
+   - After calling `fun`, the array `ar` is printed again to observe the modification made by the function.
+   - Similarly, a character array `str` is declared and initialized with the string `"Gasmat"`.
+   - The `name` function is called with the string `str` as an argument. Like the integer array, the character array is passed by reference (as a pointer), allowing `name` to modify the characters of the original string.
+   - Finally, the modified string `str` is printed to observe the changes made by the `name` function.
+
+In summary, this code demonstrates how arrays can be passed to functions as references (pointers), allowing functions to directly modify the elements of the original array. This concept is essential for efficiently working with arrays and strings in C.
