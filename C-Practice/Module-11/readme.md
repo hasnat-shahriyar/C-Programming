@@ -92,3 +92,53 @@ int main()
 7. Finally, the modified value of `x` is printed inside `fun`.
 
 In summary, call by reference allows a function to modify the original variable passed as an argument by directly accessing its memory address using a pointer. This enables functions to have side effects and modify variables in the caller's scope.
+
+## Array and Pointer
+
+Relationship between arrays and pointers in C :
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    // Declaring and initializing an array of integers
+    int ar[5] = {10, 20, 30, 40, 50};
+
+    // Printing the address of the first element of the array using array indexing (&ar[0])
+    printf("Address of index 0: %p\n", &ar[0]);
+    // Printing the address of the first element of the array using array name (ar)
+    printf("Address of index 0: %p\n", ar);
+
+    // Printing the value of the first element of the array using array indexing (ar[0])
+    printf("Value of index 0: %d\n", ar[0]);
+    // Printing the value of the first element of the array using dereferencing (*ar)
+    printf("Value of index 0: %d\n", *ar);
+
+    // Printing the address of the second element of the array using pointer arithmetic (ar + 1)
+    printf("Address of index 1: %p\n", (ar + 1));
+    // Printing the value of the second element of the array using pointer arithmetic and dereferencing (*(ar + 1))
+    printf("Value of index 1: %d\n", *(ar + 1));
+    // Printing the value of the third element of the array using array indexing (ar[2])
+    printf("Value of index 2: %d\n", ar[2]);
+
+    return 0;
+}
+```
+
+1. **Array Declaration and Initialization**:
+
+   - An array of integers `ar` with a size of 5 elements is declared and initialized with values `{10, 20, 30, 40, 50}`.
+
+2. **Printing Addresses and Values**:
+
+   - The code prints the address of the first element of the array `ar` using both array indexing (`&ar[0]`) and array name (`ar`). These two addresses are the same because the array name `ar` represents the address of the first element.
+   - The value of the first element of the array is printed using both array indexing (`ar[0]`) and dereferencing the array name (`*ar`). These two expressions also yield the same result.
+
+3. **Pointer Arithmetic**:
+   - The code prints the address of the second element of the array using pointer arithmetic (`(ar + 1)`). This expression adds the size of an integer to the address of the first element, effectively pointing to the second element.
+   - The value of the second element of the array is printed using pointer arithmetic and dereferencing (`*(ar + 1)`). This expression retrieves the value stored at the memory location pointed to by `(ar + 1)`, which is the address of the second element.
+4. **Array Indexing**:
+   - Finally, the value of the third element of the array is printed using array indexing (`ar[2]`). This expression directly accesses the value at index 2 of the array.
+
+In summary, in C, arrays can decay into pointers, meaning that the array name can be used as a pointer to the first element of the array. Pointer arithmetic can be used to navigate through array elements, and dereferencing pointers allows access to the values stored at those memory locations.
