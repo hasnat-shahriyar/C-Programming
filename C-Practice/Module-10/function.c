@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int sayHello(){
+void sayHello(){
     printf("Hello there, this is a function");
 }
 
