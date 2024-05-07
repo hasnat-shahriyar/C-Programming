@@ -143,7 +143,7 @@ int main()
 
 In summary, in C, arrays can decay into pointers, meaning that the array name can be used as a pointer to the first element of the array. Pointer arithmetic can be used to navigate through array elements, and dereferencing pointers allows access to the values stored at those memory locations.
 
-## Array and Pointer
+## Function and Array
 
 This code demonstrates the usage of arrays and pointers in C, particularly in the context of passing arrays to functions. Let's go through it step by step:
 
@@ -217,3 +217,45 @@ int main()
    - Both functions `fun` and `ptr` are called to print array elements using array and pointer notation respectively.
 
 In summary, this code illustrates how to pass arrays to functions in C using both array notation and pointer notation. It also demonstrates how to calculate the size of an array and the number of elements it contains.
+
+## Function and String
+
+Concepts of functions and strings in C:
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+// Function to calculate the length of a string
+void name_length(char *str) {
+    // Print the string and its length using the strlen() function
+    printf("Length of the string '%s' is: %d\n", str, strlen(str));
+}
+
+int main() {
+    // Declare and initialize a character array (string)
+    char str[20] = "Hasnat";
+
+    // Call the function to calculate the length of the string
+    name_length(str);
+
+    return 0;
+}
+```
+
+1. **Strings in C**:
+   - In C, strings are represented as arrays of characters (`char` data type) terminated by a null character (`'\0'`). Each character in the string occupies one byte of memory.
+   - In the `main` function, a character array `str` of size 20 is declared and initialized with the string `"Hasnat"`. Note that the array size is 20, which is large enough to accommodate the string `"Hasnat"` along with the null character `'\0'` appended automatically by C.
+2. **Functions in C**:
+
+   - Functions in C allow you to encapsulate a block of code that performs a specific task, making the code modular and reusable.
+   - In this code, there's a function named `name_length` that calculates the length of a given string.
+   - The function takes a single parameter `str`, which is a pointer to a character (`char *`). This allows the function to receive the address of the first character of the string passed to it.
+   - Inside the `name_length` function, the `strlen()` function from the `<string.h>` library is used to calculate the length of the string `str`. The `strlen()` function returns the number of characters in the string (excluding the null character at the end).
+   - The result is printed using `printf()` along with the string itself to show the calculated length.
+
+3. **`main` Function**:
+   - In `main`, the character array `str` containing the string `"Hasnat"` is declared and initialized.
+   - The `name_length` function is called with the `str` array as an argument. Since arrays decay into pointers when passed to functions, `name_length` receives a pointer to the first character of the array.
+
+In summary, this code example demonstrates how to use functions in C to perform specific tasks (such as calculating the length of a string) and how strings are represented and manipulated using character arrays.
