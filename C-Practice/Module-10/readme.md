@@ -395,3 +395,80 @@ int main()
 These functions are commonly used in mathematical calculations and are provided by the standard C library headers `<math.h>` and `<stdlib.h>`. They offer convenient ways to perform mathematical operations and manipulations on numbers in C programs.
 
 - # Scopes
+  Scope in programming refers to the region of the code where a variable can be accessed. It defines the visibility and lifetime of a variable. Let's explore scope with an example:
+
+```c
+#include <stdio.h>
+
+void function1() {
+    int a = 5;
+    printf("Inside function1: a = %d\n", a);
+}
+
+void function2() {
+    // This will cause a compilation error
+    // printf("Inside function2: a = %d\n", a);
+}
+
+int main() {
+    int a = 10;
+    printf("Inside main before function1: a = %d\n", a);
+    function1();
+    printf("Inside main after function1: a = %d\n", a);
+
+    // This will cause a compilation error
+    // printf("Inside main: a = %d\n", a);
+
+    return 0;
+}
+```
+
+In this example:
+
+1. We have two functions: `function1` and `function2`, and the `main` function.
+2. In `main`, there's a variable `a` declared with the value 10. This variable `a` has scope limited to the `main` function. It can be accessed and modified only within the `main` function.
+3. Inside `function1`, there's another variable `a` declared with the value 5. This variable `a` has scope limited to the `function1` function. It can be accessed and modified only within `function1`.
+4. If we try to access `a` from `function2`, it will result in a compilation error because `a` is not defined in the scope of `function2`.
+5. Similarly, if we try to access `a` outside of `main` or `function1`, it will also result in a compilation error because `a` is not defined in that scope.
+
+So, in summary:
+
+- The variable `a` declared in `main` is only accessible within the `main` function.
+- The variable `a` declared in `function1` is only accessible within the `function1` function.
+- Variables declared within a function are local to that function and cannot be accessed from outside of it.
+- Variables declared outside of any function (global variables) have global scope and can be accessed from any part of the program.
+
+Understanding scope is crucial for writing maintainable and error-free code, as it helps in managing variable access and preventing unintended changes or conflicts.
+
+- ### Global variable:
+
+```c
+#include <stdio.h>
+
+int global_var = 100; // Global variable
+
+void function1() {
+    printf("Inside function1: global_var = %d\n", global_var);
+}
+
+void function2() {
+    printf("Inside function2: global_var = %d\n", global_var);
+}
+
+int main() {
+    printf("Inside main before function1: global_var = %d\n", global_var);
+    function1();
+    printf("Inside main after function1: global_var = %d\n", global_var);
+    function2();
+
+    return 0;
+}
+```
+
+In this example:
+
+1. We have a global variable `global_var` declared outside of any function. This variable can be accessed from any part of the program.
+2. Both `function1` and `function2` have access to the global variable `global_var`. They can read its value and modify it if needed.
+3. In `main`, we print the value of `global_var` before and after calling `function1`. Then, we call `function2` to demonstrate that `global_var` is accessible from multiple functions.
+
+This example illustrates how global variables have global scope, meaning they can be accessed from any part of the program, including all functions. However, reliance on global variables should be minimized as they can lead to code that is harder to understand and maintain.
