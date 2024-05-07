@@ -269,6 +269,76 @@ In summary, this code prompts the user to enter two integers, calculates their s
 
 - ## Ceiling, Floor, Round, Square Root, Power, and Absolute Value Function
 
+```c
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Ceiling Function
+    double x;
+    // Input: 3.5
+    scanf("%lf", &x);
+    // ceil() function returns the smallest integer value greater than or equal to x
+    int ceiling_ans = ceil(x);
+    // Output: 4
+    printf("Ceil : %d\n", ceiling_ans);
+
+    // Floor Function
+    // floor() function returns the largest integer value less than or equal to x
+    int floor_ans = floor(x);
+    // Output: 3
+    printf("Floor: %d\n", floor_ans);
+
+    // Round Function
+    // round() function returns the nearest integer value to x
+    int round_ans = round(x);
+    // Output: 4
+    printf("Round: %d\n", round_ans);
+
+    // Square root Function
+    int r;
+    // Input: 25
+    scanf("%d", &r);
+    // sqrt() function returns the square root of r
+    double square_root = sqrt(r);
+    // Output: 5
+    printf("Square Root: %lf\n", square_root);
+
+    // Power Function
+    // with integer value
+    int p, q;
+    // Input: 3 3
+    scanf("%d %d", &p, &q);
+    // pow() function returns p raised to the power of q
+    int power_ans = pow(p, q);
+    // Output: 27
+    printf("Power: %d\n", power_ans);
+
+    // with floating value
+    double s, t;
+    // Input: 2.3 3.5
+    scanf("%lf %lf", &s, &t);
+    // pow() function also works with floating-point numbers
+    double double_power_ans = pow(s, t);
+    // Output: 18.45
+    printf("Power (Double): %0.2lf\n", double_power_ans);
+
+    // Absolute Value Function
+    int e;
+    // Input: -1 or -3 or 5
+    scanf("%d", &e);
+    // abs() function returns the absolute value of e
+    int absolute_ans = abs(e);
+    // Output: 1 or 3 or 5
+    printf("Absolute Value: %d\n", absolute_ans);
+
+    return 0;
+}
+```
+
 1. **Ceiling Function (`ceil`)**:
 
    - The `ceil` function returns the smallest integer value that is greater than or equal to the given floating-point number.
@@ -324,4 +394,4 @@ In summary, this code prompts the user to enter two integers, calculates their s
 
 These functions are commonly used in mathematical calculations and are provided by the standard C library headers `<math.h>` and `<stdlib.h>`. They offer convenient ways to perform mathematical operations and manipulations on numbers in C programs.
 
-- #
+- # Scopes
