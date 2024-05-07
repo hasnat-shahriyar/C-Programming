@@ -231,3 +231,36 @@ void add(int x, int y){
 
 - The `add` function adds two integers `x` and `y` and prints the result, but it doesn't need to return anything back to the `main` function or any other calling function.
 - Therefore, using `void` as the return type appropriately reflects the behavior of the function, which is performing a task (adding and printing) without returning a result.
+
+# No Return + No Parameter
+
+In this code example, the `add` function takes no parameters and also doesn't return any value. Let's break down the code:
+
+```c
+#include <stdio.h>
+
+void add(void){
+    int a, b;
+    scanf("%d %d", &a, &b);
+    int sum = a + b;
+    printf("%d", sum);
+}
+
+int main()
+{
+    add();
+    return 0;
+}
+```
+
+1. In the `add` function, `void` is specified in the parameter list, indicating that the function takes no arguments.
+2. Inside the `add` function:
+   - Two integer variables `a` and `b` are declared.
+   - The `scanf` function is used to read two integers from the user and store them in `a` and `b`.
+   - The sum of `a` and `b` is calculated and stored in the variable `sum`.
+   - Finally, the value of `sum` is printed using `printf`.
+3. In the `main` function, `add()` is called.
+4. This `add()` call doesn't pass any arguments because the `add` function doesn't expect any.
+5. After the `add()` function call, `return 0;` is used to indicate the successful execution of the program's main function.
+
+In summary, this code prompts the user to enter two integers, calculates their sum, and prints the result. The function `add` doesn't require any inputs and doesn't produce any outputs (i.e., it has a void return type), making it suitable for tasks that solely perform actions without needing to return a value.
