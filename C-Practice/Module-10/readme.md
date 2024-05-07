@@ -472,3 +472,41 @@ In this example:
 3. In `main`, we print the value of `global_var` before and after calling `function1`. Then, we call `function2` to demonstrate that `global_var` is accessible from multiple functions.
 
 This example illustrates how global variables have global scope, meaning they can be accessed from any part of the program, including all functions. However, reliance on global variables should be minimized as they can lead to code that is harder to understand and maintain.
+
+- # Pointer
+  Pointers are variables that store memory addresses. They are widely used in C and other programming languages to manipulate memory and facilitate various operations. Here's an example of using pointers in C:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int x = 10;  // Declare an integer variable x and assign it the value 10
+    int *ptr;    // Declare a pointer variable ptr
+
+    ptr = &x;    // Assign the address of x to ptr using the address-of operator (&)
+
+    printf("The value of x: %d\n", x);
+    printf("The address of x: %p\n", (void*)&x); // Printing the address of x
+    printf("The value of ptr: %p\n", (void*)ptr); // Printing the value stored in ptr
+
+    // Accessing the value of x using the pointer
+    printf("Accessing the value of x through the pointer: %d\n", *ptr);
+
+    // Modifying the value of x using the pointer
+    *ptr = 20;
+    printf("After modifying the value of x through the pointer, the new value of x: %d\n", x);
+
+    return 0;
+}
+```
+
+Explanation:
+
+1. We first declare an integer variable `x` and initialize it with the value `10`.
+2. Then, we declare a pointer variable `ptr` of type integer pointer (`int *ptr;`). This pointer will store the memory address of an integer variable.
+3. We assign the address of variable `x` to the pointer variable `ptr` using the address-of operator (`&`). This means `ptr` now holds the memory address of `x`.
+4. We print the value of `x`, the address of `x`, and the value stored in the pointer variable `ptr`.
+5. To access the value of `x` using the pointer, we use the dereference operator (`*ptr`). This retrieves the value stored at the memory address pointed to by `ptr`.
+6. We demonstrate modifying the value of `x` indirectly through the pointer by assigning a new value to `*ptr`. This effectively changes the value of `x`.
+
+In summary, pointers allow us to indirectly access and manipulate data in memory, providing flexibility and efficiency in memory management and data manipulation in C.
