@@ -1,6 +1,6 @@
 # Function, Scopes, and Pointer
 
-## Function
+- # Function
 
 A function in C programming is like a mini-program within a bigger program. It's a way to organize your code so that you can reuse parts of it without having to write the same code over and over again.
 
@@ -113,7 +113,7 @@ In this example:
 - Inside the function, it simply prints "Hello, world!" to the console.
 - Since the function has a return type of `void`, there's no `return` statement.
 
-# Return + No Parameter
+## Return + No Parameter
 
 In C programming, when you define a function with `void` as its parameter list, it means that the function takes no arguments. Let's go through each example:
 
@@ -186,7 +186,7 @@ int main()
 
 In this example, it's similar to the first one. The `add` function is defined with `void` as its parameter list, meaning it doesn't take any arguments. Inside `main`, however, `add(100)` is called, trying to pass an argument to a function that doesn't expect any. This will also result in a compiler error for the same reason as in example 2.
 
-# No Return + Parameter
+## No Return + Parameter
 
 In this example, the `add` function takes two integer parameters `x` and `y`, calculates their sum, and prints the result. However, it has a return type of `void`, meaning it doesn't return any value. Let's break down the code:
 
@@ -232,7 +232,7 @@ void add(int x, int y){
 - The `add` function adds two integers `x` and `y` and prints the result, but it doesn't need to return anything back to the `main` function or any other calling function.
 - Therefore, using `void` as the return type appropriately reflects the behavior of the function, which is performing a task (adding and printing) without returning a result.
 
-# No Return + No Parameter
+## No Return + No Parameter
 
 In this code example, the `add` function takes no parameters and also doesn't return any value. Let's break down the code:
 
@@ -264,3 +264,64 @@ int main()
 5. After the `add()` function call, `return 0;` is used to indicate the successful execution of the program's main function.
 
 In summary, this code prompts the user to enter two integers, calculates their sum, and prints the result. The function `add` doesn't require any inputs and doesn't produce any outputs (i.e., it has a void return type), making it suitable for tasks that solely perform actions without needing to return a value.
+
+## Built in Functions
+
+- ## Ceiling, Floor, Round, Square Root, Power, and Absolute Value Function
+
+1. **Ceiling Function (`ceil`)**:
+
+   - The `ceil` function returns the smallest integer value that is greater than or equal to the given floating-point number.
+   - In the code, `ceil(x)` is used to find the ceiling of the input floating-point number `x`.
+   - Example:
+     - Input: 3.5
+     - Output: 4 (because the smallest integer greater than or equal to 3.5 is 4)
+
+2. **Floor Function (`floor`)**:
+
+   - The `floor` function returns the largest integer value that is less than or equal to the given floating-point number.
+   - In the code, `floor(x)` is used to find the floor of the input floating-point number `x`.
+   - Example:
+     - Input: 3.5
+     - Output: 3 (because the largest integer less than or equal to 3.5 is 3)
+
+3. **Round Function (`round`)**:
+
+   - The `round` function returns the nearest integer value to the given floating-point number.
+   - In the code, `round(x)` is used to round the input floating-point number `x` to the nearest integer.
+   - Example:
+     - Input: 3.5
+     - Output: 4 (because 3.5 is closer to 4 than to 3)
+
+4. **Square Root Function (`sqrt`)**:
+
+   - The `sqrt` function returns the square root of the given number.
+   - In the code, `sqrt(r)` is used to find the square root of the input integer `r`.
+   - Example:
+     - Input: 25
+     - Output: 5 (because the square root of 25 is 5)
+
+5. **Power Function (`pow`)**:
+
+   - The `pow` function calculates the power of a given number with another number.
+   - In the code, `pow(p, q)` is used to calculate `p` raised to the power `q`.
+   - Example:
+     - Input: 3 3
+     - Output: 27 (because 3 raised to the power 3 is 27)
+     - Input: 2.3 3.5
+     - Output: 18.45 (because 2.3 raised to the power 3.5 is approximately 18.45)
+
+6. **Absolute Value Function (`abs`)**:
+   - The `abs` function returns the absolute value of the given number.
+   - In the code, `abs(e)` is used to find the absolute value of the input integer `e`.
+   - Example:
+     - Input: -1
+     - Output: 1 (because the absolute value of -1 is 1)
+     - Input: -3
+     - Output: 3 (because the absolute value of -3 is 3)
+     - Input: 5
+     - Output: 5 (because the absolute value of 5 is 5)
+
+These functions are commonly used in mathematical calculations and are provided by the standard C library headers `<math.h>` and `<stdlib.h>`. They offer convenient ways to perform mathematical operations and manipulations on numbers in C programs.
+
+- #
