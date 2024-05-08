@@ -100,3 +100,69 @@ This C code defines a function `min_max` that finds the minimum and maximum elem
    - Finally, it prints the minimum and maximum values.
 
 Overall, this code demonstrates a simple way to find the minimum and maximum elements in an array using pointers to update the values.
+
+# Count Odd
+
+This C code demonstrates a simple function named `count_odd()` and its usage in the `main()` function. Let's break down each part:
+
+1. **count_odd() Function**:
+
+   ```c
+   int count_odd(int *array, int size)
+   ```
+
+   - This function takes two parameters: a pointer to an array of integers (`*array`) and the size of that array (`size`).
+
+   ```c
+   {
+       int count = 0;
+       for (int i = 0; i < size; i++)
+       {
+           if (array[i] % 2 != 0)
+           {
+               count++;
+           }
+       }
+       return count;
+   }
+   ```
+
+   - Inside the function, an integer variable `count` is initialized to 0. This variable is used to count the number of odd elements in the array.
+   - The function then iterates through the array using a `for` loop, checking each element.
+   - If the element at the current index (`array[i]`) is odd (i.e., the remainder of division by 2 is not 0), the `count` is incremented.
+   - Finally, the function returns the total count of odd elements.
+
+2. **main() Function**:
+
+   ```c
+   int main()
+   {
+       int n;
+       scanf("%d", &n);
+   ```
+
+   - In the `main()` function, an integer variable `n` is declared. This variable is used to store the size of the array.
+   - `scanf("%d", &n);` is used to read the size of the array from the user input.
+
+   ```c
+       int ar[n];
+       for (int i = 0; i < n; i++)
+       {
+           scanf("%d", &ar[i]);
+       }
+   ```
+
+   - An array `ar` of size `n` is declared to store the integers provided by the user.
+   - A `for` loop is used to iterate from 0 to `n-1`, reading each integer from the user input and storing it in the array `ar`.
+
+   ```c
+       int odd_count = count_odd(ar, n);
+       printf("%d", odd_count);
+       return 0;
+   }
+   ```
+
+   - The `count_odd()` function is called with the array `ar` and its size `n`, and the returned count of odd elements is stored in the variable `odd_count`.
+   - Finally, the count of odd elements is printed using `printf()`.
+
+Overall, this code reads integers into an array, counts the number of odd integers in that array using a separate function, and prints the count.
