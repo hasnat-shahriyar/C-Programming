@@ -1,3 +1,5 @@
+# Char to ASCII
+
 ```c
 #include <stdio.h>
 
@@ -74,3 +76,5 @@ Here's a breakdown of what each part of the code does:
    Finally, the `main()` function returns 0, indicating successful execution of the program. In C, returning 0 from `main()` typically indicates successful termination of the program.
 
 So, when you run this program, it will prompt you to enter a character. After you input a character and press Enter, it will display the ASCII value of that character.
+
+# Small to Capital
