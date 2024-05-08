@@ -1,16 +1,21 @@
 #include <stdio.h>
 
-int prnt(int n)
+void printNumbers(int n) 
 {
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) 
     {
-        printf("%d ", i);
+        printf("%d", i);
+        if (i != n) {
+            printf(" ");
+        }
     }
+    printf("\n");
 }
-int main()
+
+int main() 
 {
-    int a;
-    scanf("%d", &a);
-    prnt(a);
+    int n;
+    scanf("%d", &n);
+    printNumbers(n);
     return 0;
 }
