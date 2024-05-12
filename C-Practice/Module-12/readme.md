@@ -461,3 +461,62 @@ Explanation:
 - Each recursive call prints one element of the array until all elements are printed.
 
 This visualization illustrates how recursion is used to print the elements of an array without using loops.
+
+##
+
+Recursion to print numbers in reverse order from 5 down to 1:
+
+```c
+
+#include <stdio.h>
+
+// Recursive function to print numbers in reverse order
+void decrement_reverse_order(int i)
+{
+    if(i == 6) return; // Base case: If i reaches 6, exit the function
+    decrement_reverse_order(i+1); // Recursive call with incremented value of i
+    printf("%d\n", i); // Print the current value of i after the recursive call returns
+}
+
+int main()
+{
+    decrement_reverse_order(1); // Call the recursive function with initial value 1
+    return 0; // Return 0 to indicate successful completion
+}
+```
+
+Let's visualize how this recursive function prints numbers in reverse order:
+
+```plaintext
+Step 1:
+decrement_reverse_order(1)
+  decrement_reverse_order(2)
+    decrement_reverse_order(3)
+      decrement_reverse_order(4)
+        decrement_reverse_order(5)
+          decrement_reverse_order(6)
+          Return (base case reached)
+        Print: 5
+      Print: 4
+    Print: 3
+  Print: 2
+Print: 1
+```
+
+Output:
+
+```
+5
+4
+3
+2
+1
+```
+
+Explanation:
+
+- The `decrement_reverse_order` function takes an integer parameter `i`.
+- If `i` reaches 6, it returns without printing anything (base case).
+- Otherwise, it calls itself recursively with `i+1`.
+- This recursive call continues until `i` reaches 6.
+- Then, as the recursive calls return, each value of `i` is printed in reverse order.
