@@ -154,37 +154,6 @@ The base case is the condition under which the function stops calling itself and
 
 The recursive case(s) define how the function calls itself with modified arguments to progress towards the base case(s). Each recursive call typically moves the function closer to solving the problem by breaking it down into smaller parts.
 
-Here's a simple example of a recursive function in C to calculate the factorial of a non-negative integer:
-
-```c
-#include <stdio.h>
-
-// Function prototype
-int factorial(int n);
-
-int main() {
-    int num;
-    printf("Enter a non-negative integer: ");
-    scanf("%d", &num);
-    printf("Factorial of %d = %d\n", num, factorial(num));
-    return 0;
-}
-
-// Recursive function to calculate factorial
-int factorial(int n) {
-    // Base case: factorial of 0 is 1
-    if (n == 0)
-        return 1;
-    // Recursive case: factorial of n is n times factorial of (n-1)
-    else
-        return n * factorial(n - 1);
-}
-```
-
-In this example, the `factorial` function calls itself with `n - 1` until it reaches the base case where `n` is 0, at which point it returns 1. Then, the function starts returning and unwinding the stack, multiplying the returned values to calculate the factorial of the original input.
-
-##
-
 ```c
 #include <stdio.h>
 
@@ -338,3 +307,68 @@ Explanation:
 - This process repeats until the base case (`i == 0`) is reached, at which point the recursion stops.
 
 Each recursive call adds a new stack frame to the call stack, and when the base case is reached, the function calls start returning, unwinding the call stack. This results in printing the numbers in reverse order.
+
+##
+
+Here's a simple example of a recursive function in C to calculate the factorial of a non-negative integer:
+
+```c
+#include <stdio.h>
+
+// Function prototype
+int factorial(int n);
+
+int main() {
+    int num;
+    printf("Enter a non-negative integer: ");
+    scanf("%d", &num);
+    printf("Factorial of %d = %d\n", num, factorial(num));
+    return 0;
+}
+
+// Recursive function to calculate factorial
+int factorial(int n) {
+    // Base case: factorial of 0 is 1
+    if (n == 0)
+        return 1;
+    // Recursive case: factorial of n is n times factorial of (n-1)
+    else
+        return n * factorial(n - 1);
+}
+```
+
+In this example, the `factorial` function calls itself with `n - 1` until it reaches the base case where `n` is 0, at which point it returns 1. Then, the function starts returning and unwinding the stack, multiplying the returned values to calculate the factorial of the original input.
+
+Let's walk through how this program calculates the factorial of a non-negative integer using recursion:
+
+1. The program starts in the `main` function.
+2. It prompts the user to enter a non-negative integer.
+3. The user inputs a number, which is stored in the variable `num`.
+4. Then, it calls the `factorial` function with the input number `num` as an argument.
+5. Inside the `factorial` function:
+   - If the input `n` is 0, it returns 1, as the factorial of 0 is defined to be 1 (base case).
+   - Otherwise, it recursively calls itself with the argument `(n - 1)` and multiplies the result by `n` (recursive case).
+6. This recursion continues until `n` becomes 0, at which point the base case is reached, and the function returns 1.
+7. As the recursive calls return, each value of `n` is multiplied to calculate the factorial.
+8. Finally, the result is returned to the `main` function, which prints the factorial of the input number.
+
+Let's trace an example:
+
+Suppose the user enters `5`:
+
+- The `factorial` function is called with `n = 5`.
+  - `n` is not 0, so it calls `factorial(4)`.
+    - `factorial(4)` calls `factorial(3)`.
+      - `factorial(3)` calls `factorial(2)`.
+        - `factorial(2)` calls `factorial(1)`.
+          - `factorial(1)` calls `factorial(0)`.
+            - `factorial(0)` returns 1 (base case).
+          - `factorial(1)` returns 1 \* 1 = 1.
+        - `factorial(2)` returns 2 \* 1 = 2.
+      - `factorial(3)` returns 3 \* 2 = 6.
+    - `factorial(4)` returns 4 \* 6 = 24.
+  - `factorial(5)` returns 5 \* 24 = 120.
+
+So, the factorial of 5 is calculated to be 120.
+
+##
