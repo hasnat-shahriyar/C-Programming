@@ -189,16 +189,16 @@ In this example, the `factorial` function calls itself with `n - 1` until it rea
 #include <stdio.h>
 
 // Recursive function to print numbers from 1 to 5
-void fun(int i)
+void increment(int i)
 {
     if (i == 6) return; // Base case: If i reaches 6, exit the function
     printf("%d\n", i); // Print the current value of i
-    fun(++i); // Recursive call with incremented value of i
+    increment(++i); // Recursive call with incremented value of i
 }
 
 int main()
 {
-    fun(1); // Call the recursive function with initial value 1
+    increment(1); // Call the recursive function with initial value 1
     return 0; // Return 0 to indicate successful completion
 }
 ```
@@ -207,37 +207,37 @@ Let's explain how recursion works with this code and visualize it:
 
 ```plaintext
 Step 1:
-fun(1)
+increment(1)
   i = 1
   Print: 1
-  fun(2)
+  increment(2)
 
 Step 2:
-fun(2)
+increment(2)
   i = 2
   Print: 2
-  fun(3)
+  increment(3)
 
 Step 3:
-fun(3)
+increment(3)
   i = 3
   Print: 3
-  fun(4)
+  increment(4)
 
 Step 4:
-fun(4)
+increment(4)
   i = 4
   Print: 4
-  fun(5)
+  increment(5)
 
 Step 5:
-fun(5)
+increment(5)
   i = 5
   Print: 5
-  fun(6)
+  increment(6)
 
 Step 6:
-fun(6)
+increment(6)
   i = 6
   Return (base case reached)
 ```
@@ -254,9 +254,87 @@ Output:
 
 Explanation:
 
-- The function `fun` takes an integer parameter `i`.
+- The function `increment` takes an integer parameter `i`.
 - It prints the value of `i`.
 - Then, it calls itself recursively with `i` incremented by 1.
 - This process repeats until the base case (`i == 6`) is reached, at which point the recursion stops.
 
 This sequence of function calls forms a call stack, where each recursive call adds a new stack frame. When the base case is reached, the function calls start returning, unwinding the call stack.
+
+##
+
+```c
+#include <stdio.h>
+
+// Recursive function to print numbers in reverse order
+void reverse(int i)
+{
+    if (i == 0) return; // Base case: If i reaches 0, exit the function
+    printf("%d\n", i); // Print the current value of i
+    reverse(--i); // Recursive call with decremented value of i
+}
+
+int main()
+{
+    reverse(5); // Call the recursive function with initial value 5
+    return 0; // Return 0 to indicate successful completion
+}
+```
+
+Let's visualize how this recursive function works:
+
+```plaintext
+Step 1:
+reverse(5)
+  i = 5
+  Print: 5
+  reverse(4)
+
+Step 2:
+reverse(4)
+  i = 4
+  Print: 4
+  reverse(3)
+
+Step 3:
+reverse(3)
+  i = 3
+  Print: 3
+  reverse(2)
+
+Step 4:
+reverse(2)
+  i = 2
+  Print: 2
+  reverse(1)
+
+Step 5:
+reverse(1)
+  i = 1
+  Print: 1
+  reverse(0)
+
+Step 6:
+reverse(0)
+  i = 0
+  Return (base case reached)
+```
+
+Output:
+
+```
+5
+4
+3
+2
+1
+```
+
+Explanation:
+
+- The function `reverse` takes an integer parameter `i`.
+- It prints the value of `i`.
+- Then, it calls itself recursively with `i` decremented by 1.
+- This process repeats until the base case (`i == 0`) is reached, at which point the recursion stops.
+
+Each recursive call adds a new stack frame to the call stack, and when the base case is reached, the function calls start returning, unwinding the call stack. This results in printing the numbers in reverse order.
