@@ -372,3 +372,92 @@ Suppose the user enters `5`:
 So, the factorial of 5 is calculated to be 120.
 
 ##
+
+- ## Array Printing using Recursion
+
+```c
+#include <stdio.h>
+
+// Recursive function to print elements of an array
+void print_array(int arr[], int n, int i)
+{
+    if (i == n) return; // Base case: If i reaches the size of the array, exit the function
+    printf("%d\n", arr[i]); // Print the current element of the array
+    print_array(arr, n, ++i); // Recursive call with incremented value of i
+}
+
+int main()
+{
+    int n;
+    scanf("%d", &n); // Read the size of the array from the user
+
+    int ar[n]; // Declare an array of size n
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &ar[i]); // Read each element of the array from the user
+    }
+    print_array(ar, n, 0); // Call the recursive function to print the array elements
+    return 0; // Return 0 to indicate successful completion
+}
+```
+
+Let's visualize how this program prints the elements of an array using recursion:
+
+Suppose the user inputs the array size as 5 and the elements of the array are {10, 20, 30, 40, 50}.
+
+```plaintext
+Step 1:
+print_array(ar, 5, 0)
+  i = 0
+  Print: ar[0] = 10
+  print_array(ar, 5, 1)
+
+Step 2:
+print_array(ar, 5, 1)
+  i = 1
+  Print: ar[1] = 20
+  print_array(ar, 5, 2)
+
+Step 3:
+print_array(ar, 5, 2)
+  i = 2
+  Print: ar[2] = 30
+  print_array(ar, 5, 3)
+
+Step 4:
+print_array(ar, 5, 3)
+  i = 3
+  Print: ar[3] = 40
+  print_array(ar, 5, 4)
+
+Step 5:
+print_array(ar, 5, 4)
+  i = 4
+  Print: ar[4] = 50
+  print_array(ar, 5, 5)
+
+Step 6:
+print_array(ar, 5, 5)
+  i = 5
+  Return (base case reached)
+```
+
+Output:
+
+```
+10
+20
+30
+40
+50
+```
+
+Explanation:
+
+- The `print_array` function takes three parameters: the array `arr`, its size `n`, and the current index `i`.
+- It prints the element at index `i` of the array.
+- Then, it calls itself recursively with the index incremented by 1.
+- This process repeats until the base case (`i == n`) is reached, at which point the recursion stops.
+- Each recursive call prints one element of the array until all elements are printed.
+
+This visualization illustrates how recursion is used to print the elements of an array without using loops.
