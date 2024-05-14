@@ -128,3 +128,138 @@ Output:
 ```
 
 Each iteration of the loops corresponds to the input/output for a single element of the array, following the row-major order.
+
+## Diagonal Matrix
+
+A diagonal matrix is a square matrix where all elements outside the main diagonal are zero. The main diagonal runs from the top-left to the bottom-right of the matrix. For a matrix to be considered diagonal, it must be square, meaning it has the same number of rows and columns.
+
+Let's go through the provided code and understand how it checks if a matrix is diagonal using an example input.
+
+### Example Input
+
+```
+3
+3
+2 0 0
+0 5 0
+0 0 3
+```
+
+### Code Explanation
+
+1. **Input Reading**: The code starts by reading the number of rows and columns, followed by the elements of the matrix.
+2. **Square Matrix Check**: The code first checks if the matrix is square by comparing the number of rows and columns.
+3. **Diagonal Check**: The code then checks if all elements outside the main diagonal are zero.
+
+### Visualization with the Example Input
+
+#### Step-by-Step Code Execution
+
+1. **Reading the Dimensions**:
+
+   - `row = 3`
+   - `col = 3`
+
+2. **Reading the Elements**:
+
+   - The matrix `arr` is read as:
+     ```
+     2 0 0
+     0 5 0
+     0 0 3
+     ```
+
+3. **Checking if the Matrix is Square**:
+
+   - Since `row` equals `col`, it is a square matrix.
+
+4. **Checking for Diagonal Matrix**:
+   - The code iterates through each element of the matrix.
+   - For each element, it checks if it is on the main diagonal (`i == j`). If not, it checks if the element is zero.
+
+#### Detailed Visualization
+
+- **First Iteration (i=0)**:
+
+  - `j=0`: Element `arr[0][0]` is on the diagonal (value = 2).
+  - `j=1`: Element `arr[0][1]` is off-diagonal (value = 0, valid).
+  - `j=2`: Element `arr[0][2]` is off-diagonal (value = 0, valid).
+
+- **Second Iteration (i=1)**:
+
+  - `j=0`: Element `arr[1][0]` is off-diagonal (value = 0, valid).
+  - `j=1`: Element `arr[1][1]` is on the diagonal (value = 5).
+  - `j=2`: Element `arr[1][2]` is off-diagonal (value = 0, valid).
+
+- **Third Iteration (i=2)**:
+  - `j=0`: Element `arr[2][0]` is off-diagonal (value = 0, valid).
+  - `j=1`: Element `arr[2][1]` is off-diagonal (value = 0, valid).
+  - `j=2`: Element `arr[2][2]` is on the diagonal (value = 3).
+
+Since all off-diagonal elements are zero and the matrix is square, the flag remains `1`.
+
+### Output
+
+The code will output:
+
+```
+Primary Diagonal
+```
+
+### Code with Comments
+
+Here's the code with added comments for clarity:
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    int row, col;
+    printf("Enter the number of rows and columns: ");
+    scanf("%d %d", &row, &col);
+
+    int arr[row][col];
+    int element = row * col;
+    printf("Enter the elements of the array:\n");
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    int flag = 1;
+    if (row != col)
+    {
+        flag = 0;  // Not a square matrix
+    }
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            if (i == j)
+            {
+                continue;  // Skip diagonal elements
+            }
+            if (arr[i][j] != 0)
+            {
+                flag = 0;  // Off-diagonal element is non-zero
+            }
+        }
+    }
+    if (flag == 1)
+    {
+        printf("Primary Diagonal\n");
+    }
+    else
+    {
+        printf("Not Diagonal\n");
+    }
+}
+```
+
+### Summary
+
+The code checks if the given matrix is a diagonal matrix by ensuring all off-diagonal elements are zero and the matrix is square. In this example, the matrix `2 0 0`, `0 5 0`, `0 0 3` is a diagonal matrix, so the output is `Primary Diagonal`.
