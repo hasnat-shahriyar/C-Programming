@@ -129,99 +129,48 @@ Output:
 
 Each iteration of the loops corresponds to the input/output for a single element of the array, following the row-major order.
 
+##
+
 ## Diagonal Matrix
 
-A diagonal matrix is a square matrix where all elements outside the main diagonal are zero. The main diagonal runs from the top-left to the bottom-right of the matrix. For a matrix to be considered diagonal, it must be square, meaning it has the same number of rows and columns.
+### Understanding Diagonal Matrices
 
-Let's go through the provided code and understand how it checks if a matrix is diagonal using an example input.
+A diagonal matrix is a square matrix (same number of rows and columns) where the elements outside the main diagonal are all zero. The main diagonal consists of elements where the row index equals the column index (i.e., positions like (0,0), (1,1), (2,2), etc.).
 
-### Example Input
+For example, in a 3x3 diagonal matrix, only the elements in the positions (0,0), (1,1), and (2,2) can be non-zero:
 
 ```
-3
-3
-2 0 0
-0 5 0
-0 0 3
+a 0 0
+0 b 0
+0 0 c
 ```
 
 ### Code Explanation
 
-1. **Input Reading**: The code starts by reading the number of rows and columns, followed by the elements of the matrix.
-2. **Square Matrix Check**: The code first checks if the matrix is square by comparing the number of rows and columns.
-3. **Diagonal Check**: The code then checks if all elements outside the main diagonal are zero.
-
-### Visualization with the Example Input
-
-#### Step-by-Step Code Execution
-
-1. **Reading the Dimensions**:
-
-   - `row = 3`
-   - `col = 3`
-
-2. **Reading the Elements**:
-
-   - The matrix `arr` is read as:
-     ```
-     2 0 0
-     0 5 0
-     0 0 3
-     ```
-
-3. **Checking if the Matrix is Square**:
-
-   - Since `row` equals `col`, it is a square matrix.
-
-4. **Checking for Diagonal Matrix**:
-   - The code iterates through each element of the matrix.
-   - For each element, it checks if it is on the main diagonal (`i == j`). If not, it checks if the element is zero.
-
-#### Detailed Visualization
-
-- **First Iteration (i=0)**:
-
-  - `j=0`: Element `arr[0][0]` is on the diagonal (value = 2).
-  - `j=1`: Element `arr[0][1]` is off-diagonal (value = 0, valid).
-  - `j=2`: Element `arr[0][2]` is off-diagonal (value = 0, valid).
-
-- **Second Iteration (i=1)**:
-
-  - `j=0`: Element `arr[1][0]` is off-diagonal (value = 0, valid).
-  - `j=1`: Element `arr[1][1]` is on the diagonal (value = 5).
-  - `j=2`: Element `arr[1][2]` is off-diagonal (value = 0, valid).
-
-- **Third Iteration (i=2)**:
-  - `j=0`: Element `arr[2][0]` is off-diagonal (value = 0, valid).
-  - `j=1`: Element `arr[2][1]` is off-diagonal (value = 0, valid).
-  - `j=2`: Element `arr[2][2]` is on the diagonal (value = 3).
-
-Since all off-diagonal elements are zero and the matrix is square, the flag remains `1`.
-
-### Output
-
-The code will output:
-
-```
-Primary Diagonal
-```
-
-### Code with Comments
-
-Here's the code with added comments for clarity:
+Let's break down the given C code to understand how it checks if a given matrix is a diagonal matrix.
 
 ```c
 #include <stdio.h>
 
 int main()
 {
+    // Variable declarations for the number of rows and columns
     int row, col;
+
+    // Prompt the user to enter the number of rows and columns
     printf("Enter the number of rows and columns: ");
+    // Read the number of rows and columns from the user input
     scanf("%d %d", &row, &col);
 
+    // Declare a 2D array with the given number of rows and columns
     int arr[row][col];
+
+    // Calculate the total number of elements in the array (not used further in the code)
     int element = row * col;
+
+    // Prompt the user to enter the elements of the array
     printf("Enter the elements of the array:\n");
+    // Read the elements into the 2D array
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)
@@ -230,36 +179,279 @@ int main()
         }
     }
 
+    // Flag variable to determine if the matrix is a diagonal matrix
     int flag = 1;
+
+    // Check if the matrix is not square (number of rows is not equal to number of columns)
     if (row != col)
     {
-        flag = 0;  // Not a square matrix
+        // If the matrix is not square, set the flag to 0 (indicating it's not a diagonal matrix)
+        flag = 0;
     }
+
+    // Iterate over each element of the matrix to check the diagonal condition
     for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)
         {
+            // Skip the diagonal elements
             if (i == j)
             {
-                continue;  // Skip diagonal elements
+                continue;
             }
+            // If any non-diagonal element is not zero, set the flag to 0
             if (arr[i][j] != 0)
             {
-                flag = 0;  // Off-diagonal element is non-zero
+                flag = 0;
             }
         }
     }
+
+    // After checking all elements, if the flag is still 1, it means the matrix is diagonal
     if (flag == 1)
     {
         printf("Primary Diagonal\n");
     }
+    // If the flag is 0, the matrix is not a diagonal matrix
     else
     {
         printf("Not Diagonal\n");
     }
+
+    // Return 0 to indicate successful execution
+    return 0;
 }
 ```
 
-### Summary
+### Visualizing and Explaining the Code
 
-The code checks if the given matrix is a diagonal matrix by ensuring all off-diagonal elements are zero and the matrix is square. In this example, the matrix `2 0 0`, `0 5 0`, `0 0 3` is a diagonal matrix, so the output is `Primary Diagonal`.
+1. **Input Matrix Dimensions and Elements:**
+
+   - The program starts by asking the user to input the number of rows and columns for the matrix.
+   - It then initializes a 2D array `arr` of the specified size.
+   - The user is prompted to input the elements of the matrix.
+
+2. **Initial Check for Square Matrix:**
+
+   - The code first checks if the matrix is square (`row == col`). If not, it sets `flag` to 0 immediately because a non-square matrix cannot be diagonal.
+
+3. **Check for Diagonal Matrix:**
+
+   - The nested loops iterate through each element of the matrix.
+   - If the element is on the main diagonal (`i == j`), the loop continues without further checks.
+   - If the element is not on the main diagonal and is not zero (`arr[i][j] != 0`), it sets `flag` to 0.
+
+4. **Result Output:**
+   - After the loops, if `flag` is still 1, the matrix is diagonal, and it prints "Primary Diagonal".
+   - Otherwise, it prints "Not Diagonal".
+
+### Example Input and Execution
+
+Given the input matrix:
+
+```
+2 0 0
+0 5 0
+0 0 3
+```
+
+**Step-by-Step Execution:**
+
+1. **Matrix Input:**
+
+   - The user inputs `3` for rows and `3` for columns.
+   - The user then inputs the elements of the matrix:
+     ```
+     2 0 0
+     0 5 0
+     0 0 3
+     ```
+
+2. **Square Matrix Check:**
+
+   - The code verifies `row == col` (3 == 3), so the matrix is square.
+
+3. **Diagonal Matrix Check:**
+
+   - Iterating through each element:
+     - `(0,0) -> 2` (main diagonal, no check)
+     - `(0,1) -> 0` (not on the diagonal, value is zero)
+     - `(0,2) -> 0` (not on the diagonal, value is zero)
+     - `(1,0) -> 0` (not on the diagonal, value is zero)
+     - `(1,1) -> 5` (main diagonal, no check)
+     - `(1,2) -> 0` (not on the diagonal, value is zero)
+     - `(2,0) -> 0` (not on the diagonal, value is zero)
+     - `(2,1) -> 0` (not on the diagonal, value is zero)
+     - `(2,2) -> 3` (main diagonal, no check)
+   - All non-diagonal elements are zero, so `flag` remains 1.
+
+4. **Output Result:**
+   - Since `flag` is 1, it prints "Primary Diagonal".
+
+### Conclusion
+
+This code effectively checks if a matrix is a diagonal matrix by:
+
+- Ensuring the matrix is square.
+- Verifying all non-diagonal elements are zero.
+  If both conditions are met, it confirms the matrix as diagonal.
+
+## Secondary Diagonal Matrices
+
+A secondary diagonal matrix is a square matrix where the elements outside the secondary diagonal are all zero. The secondary diagonal consists of elements where the sum of the row index and column index equals the size of the matrix minus one (i.e., positions like (0, n-1), (1, n-2), (2, n-3), etc., for an n x n matrix).
+
+For example, in a 3x3 secondary diagonal matrix, only the elements in the positions (0,2), (1,1), and (2,0) can be non-zero:
+
+```
+0 0 a
+0 b 0
+c 0 0
+```
+
+### Code Explanation
+
+Let's break down the given C code to understand how it checks if a given matrix is a secondary diagonal matrix.
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    // Variable declarations for the number of rows and columns
+    int row, col;
+
+    // Prompt the user to enter the number of rows and columns
+    printf("Enter the number of rows and columns: ");
+    // Read the number of rows and columns from the user input
+    scanf("%d %d", &row, &col);
+
+    // Declare a 2D array with the given number of rows and columns
+    int arr[row][col];
+
+    // Prompt the user to enter the elements of the array
+    printf("Enter the elements of the array:\n");
+    // Read the elements into the 2D array
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    // Flag variable to determine if the matrix is a secondary diagonal matrix
+    int flag = 1;
+
+    // Check if the matrix is not square (number of rows is not equal to number of columns)
+    if (row != col)
+    {
+        // If the matrix is not square, set the flag to 0 (indicating it's not a diagonal matrix)
+        flag = 0;
+    }
+
+    // Iterate over each element of the matrix to check the secondary diagonal condition
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            // Skip the secondary diagonal elements (where i + j == row - 1)
+            if (i + j == row - 1)
+            {
+                continue;
+            }
+            // If any non-diagonal element is not zero, set the flag to 0
+            if (arr[i][j] != 0)
+            {
+                flag = 0;
+            }
+        }
+    }
+
+    // After checking all elements, if the flag is still 1, it means the matrix is secondary diagonal
+    if (flag == 1)
+    {
+        printf("Secondary Diagonal\n");
+    }
+    // If the flag is 0, the matrix is not a secondary diagonal matrix
+    else
+    {
+        printf("Not Diagonal\n");
+    }
+
+    // Return 0 to indicate successful execution
+    return 0;
+}
+```
+
+### Visualizing and Explaining the Code
+
+1. **Input Matrix Dimensions and Elements:**
+
+   - The program starts by asking the user to input the number of rows and columns for the matrix.
+   - It then initializes a 2D array `arr` of the specified size.
+   - The user is prompted to input the elements of the matrix.
+
+2. **Initial Check for Square Matrix:**
+
+   - The code first checks if the matrix is square (`row == col`). If not, it sets `flag` to 0 immediately because a non-square matrix cannot be a secondary diagonal matrix.
+
+3. **Check for Secondary Diagonal Matrix:**
+
+   - The nested loops iterate through each element of the matrix.
+   - If the element is on the secondary diagonal (`i + j == row - 1`), the loop continues without further checks.
+   - If the element is not on the secondary diagonal and is not zero (`arr[i][j] != 0`), it sets `flag` to 0.
+
+4. **Result Output:**
+   - After the loops, if `flag` is still 1, the matrix is a secondary diagonal matrix, and it prints "Secondary Diagonal".
+   - Otherwise, it prints "Not Diagonal".
+
+### Example Input and Execution
+
+Given the input matrix:
+
+```
+0 0 2
+0 5 0
+3 0 0
+```
+
+**Step-by-Step Execution:**
+
+1. **Matrix Input:**
+
+   - The user inputs `3` for rows and `3` for columns.
+   - The user then inputs the elements of the matrix:
+     ```
+     0 0 2
+     0 5 0
+     3 0 0
+     ```
+
+2. **Square Matrix Check:**
+
+   - The code verifies `row == col` (3 == 3), so the matrix is square.
+
+3. **Secondary Diagonal Matrix Check:**
+
+   - Iterating through each element:
+     - `(0,0) -> 0` (not on the diagonal, value is zero)
+     - `(0,1) -> 0` (not on the diagonal, value is zero)
+     - `(0,2) -> 2` (secondary diagonal, no check)
+     - `(1,0) -> 0` (not on the diagonal, value is zero)
+     - `(1,1) -> 5` (secondary diagonal, no check)
+     - `(1,2) -> 0` (not on the diagonal, value is zero)
+     - `(2,0) -> 3` (secondary diagonal, no check)
+     - `(2,1) -> 0` (not on the diagonal, value is zero)
+     - `(2,2) -> 0` (not on the diagonal, value is zero)
+   - All non-secondary diagonal elements are zero, so `flag` remains 1.
+
+4. **Output Result:**
+   - Since `flag` is 1, it prints "Secondary Diagonal".
+
+### Conclusion
+
+This code effectively checks if a matrix is a secondary diagonal matrix by:
+
+- Ensuring the matrix is square.
+- Verifying all non-secondary diagonal elements are zero.
+  If both conditions are met, it confirms the matrix as a secondary diagonal matrix.
