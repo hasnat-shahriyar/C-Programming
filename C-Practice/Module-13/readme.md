@@ -455,3 +455,250 @@ This code effectively checks if a matrix is a secondary diagonal matrix by:
 - Ensuring the matrix is square.
 - Verifying all non-secondary diagonal elements are zero.
   If both conditions are met, it confirms the matrix as a secondary diagonal matrix.
+
+##
+
+## Scalar Matrices
+
+A scalar matrix is a special type of diagonal matrix where all the elements on the main diagonal are the same, and all other elements are zero. For example, in a 3x3 scalar matrix:
+
+```
+a 0 0
+0 a 0
+0 0 a
+```
+
+Here, `a` is a scalar value.
+
+### Code Explanation
+
+Let's break down the provided C code to understand how it checks if a given matrix is a scalar matrix.
+
+```c
+#include <stdio.h>
+
+int main()
+{
+    // Variable declarations for the number of rows and columns
+    int row, col;
+
+    // Prompt the user to enter the number of rows and columns
+    printf("Enter the number of rows and columns: ");
+    // Read the number of rows and columns from the user input
+    scanf("%d %d", &row, &col);
+
+    // Declare a 2D array with the given number of rows and columns
+    int arr[row][col];
+
+    // Prompt the user to enter the elements of the array
+    printf("Enter the elements of the array:\n");
+    // Read the elements into the 2D array
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    // Flag variable to determine if the matrix is a scalar matrix
+    int flag = 1;
+
+    // Check if the matrix is not square (number of rows is not equal to number of columns)
+    if (row != col)
+    {
+        // If the matrix is not square, set the flag to 0 (indicating it's not a scalar matrix)
+        flag = 0;
+    }
+
+    // Iterate over each element of the matrix to check the scalar matrix condition
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            // Check diagonal elements
+            if (i == j)
+            {
+                // If any diagonal element is not equal to the first diagonal element, set the flag to 0
+                if (arr[i][j] != arr[0][0])
+                {
+                    flag = 0;
+                }
+            }
+            // Check non-diagonal elements
+            else if (arr[i][j] != 0)
+            {
+                // If any non-diagonal element is not zero, set the flag to 0
+                flag = 0;
+            }
+        }
+    }
+
+    // After checking all elements, if the flag is still 1, it means the matrix is scalar
+    if (flag == 1)
+    {
+        printf("Scalar Matrix\n");
+    }
+    // If the flag is 0, the matrix is not a scalar matrix
+    else
+    {
+        printf("Not Scalar Matrix\n");
+    }
+
+    // Return 0 to indicate successful execution
+    return 0;
+}
+```
+
+### Visualizing and Explaining the Code
+
+1. **Input Matrix Dimensions and Elements:**
+
+   - The program starts by asking the user to input the number of rows and columns for the matrix.
+   - It then initializes a 2D array `arr` of the specified size.
+   - The user is prompted to input the elements of the matrix.
+
+2. **Initial Check for Square Matrix:**
+
+   - The code first checks if the matrix is square (`row == col`). If not, it sets `flag` to 0 immediately because a non-square matrix cannot be scalar.
+
+3. **Check for Scalar Matrix:**
+
+   - The nested loops iterate through each element of the matrix.
+   - **Diagonal Elements Check (`i == j`):**
+     - If any diagonal element is not equal to the first diagonal element (`arr[0][0]`), it sets `flag` to 0.
+   - **Non-Diagonal Elements Check (`i != j`):**
+     - If any non-diagonal element is not zero, it sets `flag` to 0.
+
+4. **Result Output:**
+   - After the loops, if `flag` is still 1, the matrix is a scalar matrix, and it prints "Scalar Matrix".
+   - Otherwise, it prints "Not Scalar Matrix".
+
+### Example Inputs and Execution
+
+**Example Input 1:**
+
+```
+2 0 0
+0 2 0
+0 0 2
+```
+
+**Step-by-Step Execution:**
+
+1. **Matrix Input:**
+
+   - The user inputs `3` for rows and `3` for columns.
+   - The user then inputs the elements of the matrix:
+     ```
+     2 0 0
+     0 2 0
+     0 0 2
+     ```
+
+2. **Square Matrix Check:**
+
+   - The code verifies `row == col` (3 == 3), so the matrix is square.
+
+3. **Scalar Matrix Check:**
+
+   - Iterating through each element:
+     - `(0,0) -> 2` (diagonal, equal to `arr[0][0]`)
+     - `(0,1) -> 0` (non-diagonal, zero)
+     - `(0,2) -> 0` (non-diagonal, zero)
+     - `(1,0) -> 0` (non-diagonal, zero)
+     - `(1,1) -> 2` (diagonal, equal to `arr[0][0]`)
+     - `(1,2) -> 0` (non-diagonal, zero)
+     - `(2,0) -> 0` (non-diagonal, zero)
+     - `(2,1) -> 0` (non-diagonal, zero)
+     - `(2,2) -> 2` (diagonal, equal to `arr[0][0]`)
+   - All conditions are met, so `flag` remains 1.
+
+4. **Output Result:**
+   - Since `flag` is 1, it prints "Scalar Matrix".
+
+**Example Input 2:**
+
+```
+2 0 0
+0 1 0
+0 0 2
+```
+
+**Step-by-Step Execution:**
+
+1. **Matrix Input:**
+
+   - The user inputs `3` for rows and `3` for columns.
+   - The user then inputs the elements of the matrix:
+     ```
+     2 0 0
+     0 1 0
+     0 0 2
+     ```
+
+2. **Square Matrix Check:**
+
+   - The code verifies `row == col` (3 == 3), so the matrix is square.
+
+3. **Scalar Matrix Check:**
+
+   - Iterating through each element:
+     - `(0,0) -> 2` (diagonal, equal to `arr[0][0]`)
+     - `(0,1) -> 0` (non-diagonal, zero)
+     - `(0,2) -> 0` (non-diagonal, zero)
+     - `(1,0) -> 0` (non-diagonal, zero)
+     - `(1,1) -> 1` (diagonal, not equal to `arr[0][0]`), sets `flag` to 0
+     - (Further checks are skipped since `flag` is already 0)
+   - `flag` is set to 0 due to the mismatch in diagonal elements.
+
+4. **Output Result:**
+   - Since `flag` is 0, it prints "Not Scalar Matrix".
+
+**Example Input 3:**
+
+```
+2 0 0
+0 2 1
+0 0 2
+```
+
+**Step-by-Step Execution:**
+
+1. **Matrix Input:**
+
+   - The user inputs `3` for rows and `3` for columns.
+   - The user then inputs the elements of the matrix:
+     ```
+     2 0 0
+     0 2 1
+     0 0 2
+     ```
+
+2. **Square Matrix Check:**
+
+   - The code verifies `row == col` (3 == 3), so the matrix is square.
+
+3. **Scalar Matrix Check:**
+
+   - Iterating through each element:
+     - `(0,0) -> 2` (diagonal, equal to `arr[0][0]`)
+     - `(0,1) -> 0` (non-diagonal, zero)
+     - `(0,2) -> 0` (non-diagonal, zero)
+     - `(1,0) -> 0` (non-diagonal, zero)
+     - `(1,1) -> 2` (diagonal, equal to `arr[0][0]`)
+     - `(1,2) -> 1` (non-diagonal, not zero), sets `flag` to 0
+     - (Further checks are skipped since `flag` is already 0)
+   - `flag` is set to 0 due to the non-zero non-diagonal element.
+
+4. **Output Result:**
+   - Since `flag` is 0, it prints "Not Scalar Matrix".
+
+### Conclusion
+
+This code effectively checks if a matrix is a scalar matrix by:
+
+- Ensuring the matrix is square.
+- Verifying all diagonal elements are equal.
+- Ensuring all non-diagonal elements are zero.
+  If all conditions are met, it confirms the matrix as a scalar matrix.
