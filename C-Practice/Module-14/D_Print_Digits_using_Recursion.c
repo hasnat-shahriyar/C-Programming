@@ -17,6 +17,10 @@ int main()
         int n;
         scanf("%d", &n);
         digit(n);
+        if(n == 0)
+        {
+            printf("0");
+        }
         printf("\n");
     }
     return 0;
