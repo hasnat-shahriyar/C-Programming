@@ -2,46 +2,41 @@
 #include <stdio.h>
 
 int main() {
-    // Declare variables for the dimensions of the matrix
-    int n, m;
-    // Read the dimensions of the matrix
-    scanf("%d %d", &n, &m);
+    int row, col;
+    // Input the number of rows and columns of the matrix
+    scanf("%d %d", &row, &col);
 
-    // Declare a 2D array to store the matrix
-    int matrix[n][m];
+    // Declare a matrix with given rows and columns
+    int matrix[row][col];
 
-    // Input the elements of the matrix
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
+    // Input elements of the matrix
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
             scanf("%d", &matrix[i][j]);
         }
     }
 
-    // Variable to track if the matrix is a Jadu Square
-    int isJadu = 1;
+    // Variable to track whether the matrix meets the conditions of a square matrix
+    int squareMatrix = 1;
 
-    // Check each element of the matrix
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            // If it's on the main diagonal or anti-diagonal
-            if ((i == j || i + j == n - 1) && matrix[i][j] != 1) {
-                // If it's not 1, the matrix is not a Jadu Square
-                isJadu = 0;
+    // Loop through each element of the matrix
+    for (int i = 0; i < row && squareMatrix; i++) {
+        for (int j = 0; j < col; j++) {
+            // Check if the current element is on the main diagonal or anti-diagonal
+            if ((i == j || i + j == row - 1) && matrix[i][j] != 1) {
+                // If the element is not 1 on the main diagonal or anti-diagonal, it's not a square matrix
+                squareMatrix = 0;
                 break;
-            }
-            // If it's not on the main diagonal or anti-diagonal
-            else if ((i != j && i + j != n - 1) && matrix[i][j] != 0) {
-                // If it's not 0, the matrix is not a Jadu Square
-                isJadu = 0;
+            } else if ((i != j && i + j != row - 1) && matrix[i][j] != 0) {
+                // If the element is not 0 elsewhere, it's not a square matrix
+                squareMatrix = 0;
                 break;
             }
         }
-        // If isJadu becomes false, break out of the outer loop
-        if (!isJadu) break;
     }
 
-    // Output whether the matrix is a Jadu Square or not
-    if (isJadu) {
+    // Output whether the matrix is a square matrix or not
+    if (squareMatrix) {
         printf("YES\n");
     } else {
         printf("NO\n");
@@ -49,35 +44,41 @@ int main() {
 
     return 0;
 }
+
 ```
 
-Let's break down the code and explain the logic step by step.
+Let's break down the code and explain it step by step.
+
+### Problem Statement:
+
+The task is to determine whether a given matrix is a Jadu Matrix or not. A Jadu Matrix is a square matrix where the values of the primary diagonal and the secondary diagonal are all 1, and all other elements are 0.
 
 ### Code Explanation:
 
-1. **Input:**
+1. **Input Size of Matrix:**
 
-   - The code first reads two integers `n` and `m` representing the number of rows and columns in the matrix, respectively.
-   - Then, it initializes a 2D array `matrix` of size `n x m` to store the elements of the matrix.
+   - The program starts by prompting the user to input the number of rows and columns of the matrix.
+   - It reads the input values into the variables `row` and `col`.
 
-2. **Matrix Input:**
+2. **Matrix Declaration and Input:**
 
-   - Nested loops are used to read the elements of the matrix. The outer loop iterates over the rows, and the inner loop iterates over the columns.
+   - An array `matrix` is declared with the size `row` x `col` to store the elements of the matrix.
+   - The elements of the matrix are then taken as input from the user in row-major order using nested loops.
 
-3. **Checking for Jadu Matrix:**
+3. **Check for Square Matrix and Jadu Matrix:**
 
-   - Another nested loop structure is used to traverse through each element of the matrix and check if it satisfies the conditions of a Jadu Matrix.
-   - The conditions are:
-     - If an element lies on the primary diagonal (`i == j`) or the secondary diagonal (`i + j == n - 1`), it must be `1`.
-     - If an element does not lie on any of the diagonals, it must be `0`.
+   - A variable `squareMatrix` is initialized to `1`, assuming initially that the matrix is square.
+   - Nested loops iterate through each element of the matrix.
+   - For each element, it checks:
+     - If the element is on the main diagonal or the anti-diagonal, and it's not equal to `1`, it sets `squareMatrix` to `0`, indicating it's not a Jadu Matrix.
+     - If the element is not on the main diagonal or the anti-diagonal, and it's not equal to `0`, it sets `squareMatrix` to `0`, indicating it's not a Jadu Matrix.
 
 4. **Output:**
-   - If all elements satisfy the conditions, the variable `isJadu` remains `1`, indicating that the matrix is a Jadu Matrix. In this case, "YES" is printed.
-   - If any element violates the conditions, `isJadu` is set to `0`, indicating that the matrix is not a Jadu Matrix. In this case, "NO" is printed.
+   - Finally, it prints "YES" if `squareMatrix` is still `1`, indicating the matrix is a Jadu Matrix. Otherwise, it prints "NO".
 
 ### Visual Representation:
 
-Let's illustrate with a sample Jadu Matrix:
+Consider the following 5x5 matrix from one of the sample inputs:
 
 ```
 1 0 0 0 1
@@ -89,21 +90,15 @@ Let's illustrate with a sample Jadu Matrix:
 
 In this matrix:
 
-- Primary Diagonal: Elements from (0,0) to (4,4) are on the primary diagonal.
-- Secondary Diagonal: Elements from (0,4) to (4,0) are on the secondary diagonal.
-- All other elements are `0`.
+- The main diagonal (from top-left to bottom-right) and the anti-diagonal (from top-right to bottom-left) contain all 1's.
+- All other elements are 0.
+- Hence, it's a Jadu Matrix.
 
-### Logic:
+### Sample Inputs and Outputs:
 
-- The program iterates over each element of the matrix.
-- For each element:
-  - If it lies on either the primary or secondary diagonal, it must be `1`.
-  - If it doesn't lie on any diagonal, it must be `0`.
-- If any element violates these conditions, the matrix is not a Jadu Matrix.
+Let's check the given sample inputs and outputs:
 
-### Sample Input and Output:
-
-**Sample Input:**
+**Sample Input 0:**
 
 ```
 5 5
@@ -114,13 +109,89 @@ In this matrix:
 1 0 0 0 1
 ```
 
-**Sample Output:**
+**Sample Output 0:**
 
 ```
 YES
 ```
 
-This output indicates that the given matrix is indeed a Jadu Matrix because all the conditions are satisfied.
+Explanation: The matrix satisfies the conditions of a Jadu Matrix.
 
-The same logic is applied to other sample inputs to determine whether they are Jadu Matrices or not.
-V
+**Sample Input 1:**
+
+```
+5 5
+1 0 0 0 1
+0 1 0 1 0
+0 0 0 0 0
+0 1 0 1 0
+1 0 0 0 1
+```
+
+**Sample Output 1:**
+
+```
+NO
+```
+
+Explanation: The matrix does not have all 1's on the diagonals.
+
+**Sample Input 2:**
+
+```
+5 5
+1 0 0 0 1
+0 1 0 1 0
+0 0 1 0 1
+0 1 0 1 0
+1 0 0 0 1
+```
+
+**Sample Output 2:**
+
+```
+NO
+```
+
+Explanation: Although it has all 1's on the diagonals, it has non-zero elements outside of them.
+
+**Sample Input 3:**
+
+```
+5 5
+2 0 0 0 1
+0 1 0 1 0
+0 0 1 0 0
+0 1 0 1 0
+1 0 0 0 1
+```
+
+**Sample Output 3:**
+
+```
+NO
+```
+
+Explanation: It has non-zero elements outside of the diagonals.
+
+**Sample Input 4:**
+
+```
+6 6
+1 0 0 0 0 1
+0 1 0 0 1 0
+0 0 1 1 0 0
+0 0 1 1 0 0
+0 1 0 0 1 0
+1 0 0 0 0 1
+```
+
+**Sample Output 4:**
+
+```
+YES
+```
+
+Explanation: This matrix is a valid Jadu Matrix.
+
+The program correctly identifies whether the given matrices are Jadu Matrices or not according to the provided conditions.

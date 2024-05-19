@@ -14,29 +14,28 @@ int main() {
         }
     }
 
-    int isJadu = 1;
-    for (int i = 0; i < row; i++)
+    int squareMatrix = 1;
+    for (int i = 0; i < row && squareMatrix; i++)
     {
         for (int j = 0; j < col; j++)
         {
             if ((i == j || i + j == row - 1) && matrix[i][j] != 1)
             {
-                isJadu = 0;
+                squareMatrix = 0;
                 break;
             }
             else if ((i != j && i + j != row - 1) && matrix[i][j] != 0)
             {
-                isJadu = 0;
+                squareMatrix = 0;
                 break;
             }
         }
-        if (!isJadu) break;
     }
 
-    if (isJadu) 
+    if (squareMatrix)
     {
         printf("YES\n");
-    } 
+    }
     else
     {
         printf("NO\n");
